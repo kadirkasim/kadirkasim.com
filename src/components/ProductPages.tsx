@@ -113,8 +113,10 @@ export function PrivacyPage({ product }: { product: ProductContent }) {
         <h2 className="pt-4 text-lg font-normal text-paper">Data</h2>
         {product.onDevice ? (
           <p>
-            Tasks and settings stay on your device. {product.title} does not require an account
-            for this listing.
+            {product.kind === "game"
+              ? "Game data stays on your device."
+              : "Tasks and settings stay on your device."}{" "}
+            {product.title} does not require an account for this listing.
           </p>
         ) : (
           <p>See the product listing for how data is handled. This page does not invent SDKs.</p>
