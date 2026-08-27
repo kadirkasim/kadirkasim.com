@@ -63,7 +63,7 @@ Local: `npm run dev` → http://localhost:3000
 ## Phase 5 — Ship
 
 - [x] Local git (`main`, first commit)
-- [ ] GitHub repo + push (needs `gh auth login` once, or an empty repo URL)
+- [x] GitHub repo + push: https://github.com/kadirkasim/kadirkasim.com
 - [ ] Vercel Hobby deploy
 - [ ] `kadirkasim.com` DNS + HTTPS
 - [ ] Open and click all seven URLs on the live domain
