@@ -1,0 +1,14 @@
+---
+description: Brand HQ lock — keep always short; details in docs/
+alwaysApply: true
+---
+
+# kadirkasim.com
+
+Indie HQ. English first. Values: Trust, Charisma, Labor, Creativity.
+
+Read [AGENTS.md](AGENTS.md) for which doc to open. Do not load every markdown file into one reply.
+
+- Copy: `content/` only. Do not invent store/YouTube URLs or download counts.
+- Kanvra privacy stays true (on-device, no ads/analytics/IAP).
+- Next.js + TypeScript + Tailwind + Vercel when code exists. Website first; Instagram is out of the current TASKS.

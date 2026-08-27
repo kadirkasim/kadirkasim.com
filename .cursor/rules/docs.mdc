@@ -1,0 +1,11 @@
+---
+description: Keep TASKS and docs as the map, not a second brand bible
+globs: "{docs/**/*.md,TASKS.md,AGENTS.md}"
+alwaysApply: false
+---
+
+# Docs
+
+- TASKS.md = current checkboxes only. Move finished narrative to roadmap/brief.
+- BRIEF = facts. Voice = tone. Content-model = schema. Do not copy the same Kanvra paragraph into all three.
+- Unknown facts stay `unknown`. Do not fill URLs from memory.

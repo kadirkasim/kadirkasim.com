@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #12110e;
+  --color-paper: #efe8d8;
+  --color-muted: #b7ae9a;
+  --color-line: #2c2a24;
+  --color-gold: #c4a574;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-paper);
+}
+
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+}

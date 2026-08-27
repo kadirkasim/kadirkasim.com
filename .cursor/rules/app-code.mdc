@@ -1,0 +1,12 @@
+---
+description: Next.js TypeScript pages consume content/, no duplicate copy
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# App code
+
+- Import product/site strings from `content/` (or a typed loader). Do not hardcode Kanvra/Solitaire blurbs in JSX.
+- App Router, TypeScript, Tailwind. Server Components by default.
+- New product route: `/apps/[slug]` or `/games/[slug]` plus `/support` and `/privacy`.
+- Example: Kanvra home copy comes from `content/products/kanvra.md`, not from a second paragraph in the page.

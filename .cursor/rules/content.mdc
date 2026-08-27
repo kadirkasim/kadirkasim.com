@@ -1,0 +1,14 @@
+---
+description: Product and site copy — single source of truth
+globs: content/**/*.md
+alwaysApply: false
+---
+
+# Content files
+
+These files are canonical. UI must match them.
+
+- Frontmatter fields follow [docs/content-model.md](docs/content-model.md). Do not add marketing fields that imply fake scale (`downloads`, `users`, `featuredOn`).
+- Kanvra: do not add analytics, ads, accounts, or IAP to copy unless BRIEF changes.
+- Status `coming-soon` only if it is actually shipping.
+- After editing a product file, update any page that imports it in the same change.
