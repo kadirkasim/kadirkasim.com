@@ -20,7 +20,7 @@ Local: `npm run dev` → http://localhost:3000
 - [x] `content/products/kanvra.md`
 - [x] `content/products/solitaire-friends.md`
 - [x] Solitaire Friends: ads via Google AdMob (`app-ads.txt` + privacy/support)
-- [ ] Paste real App Store URLs into those two files when they exist (empty = no fake button)
+- [ ] Paste Kanvra App Store URL when it exists (empty = no fake button)
 
 ---
 
