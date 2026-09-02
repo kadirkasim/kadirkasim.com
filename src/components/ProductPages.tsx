@@ -16,20 +16,24 @@ export function ProductLanding({ product }: { product: ProductContent }) {
       <p className="mb-3 font-sans text-xs uppercase tracking-[0.16em] text-gold">
         {product.kind === "game" ? "Game" : "App"}
       </p>
-      <h1 className="mb-4 text-4xl font-normal leading-tight">{product.title}</h1>
+      <h1 className="mb-4 text-4xl font-normal leading-tight tracking-tight md:text-5xl">
+        {product.title}
+      </h1>
       <p className="mb-6 text-xl text-muted">{product.tagline}</p>
-      <p className="mb-8 text-muted">{product.description}</p>
-      {product.body ? <p className="mb-10 text-muted">{product.body}</p> : null}
-      <div className="mb-12 flex flex-wrap items-center gap-4">
+      <p className="mb-8 max-w-xl leading-relaxed text-muted">{product.description}</p>
+      {product.body ? <p className="mb-10 max-w-xl leading-relaxed text-muted">{product.body}</p> : null}
+      <div className="mb-12 flex flex-wrap items-center gap-5">
         {product.storeUrl ? (
           <a
             href={product.storeUrl}
-            className="bg-paper px-4 py-2 font-sans text-sm text-bg no-underline hover:bg-gold"
+            className="bg-paper px-5 py-2.5 font-sans text-sm tracking-wide text-bg no-underline hover:bg-gold"
           >
             Get on the App Store
           </a>
         ) : (
-          <span className="text-muted">App Store listing is not public on this page yet.</span>
+          <span className="font-sans text-sm text-muted">
+            App Store listing is not public on this page yet.
+          </span>
         )}
         <Link href={`${base}/support`} className="text-gold">
           Support

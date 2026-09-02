@@ -6,6 +6,8 @@
   --color-muted: #b7ae9a;
   --color-line: #2c2a24;
   --color-gold: #c4a574;
+  --font-serif: var(--font-fraunces), "Iowan Old Style", Palatino, serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 }
 
 html,
@@ -14,6 +16,7 @@ body {
   color: var(--color-paper);
 }
 
-body {
-  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+::selection {
+  background: var(--color-gold);
+  color: var(--color-bg);
 }

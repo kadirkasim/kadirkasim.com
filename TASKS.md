@@ -35,7 +35,7 @@ Local: `npm run dev` → http://localhost:3000
 
 ## Phase 2 — Coming soon HQ
 
-- [x] `/` coming soon: Kadir Kasim, position, links to Kanvra and Solitaire Friends
+- [x] `/` HQ: shipped products + work (no coming soon)
 - [x] Products reachable from home
 - [x] 404 page
 - [x] English first
