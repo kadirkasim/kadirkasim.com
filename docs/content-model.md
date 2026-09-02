@@ -23,9 +23,13 @@ onDevice: true
 ads: false
 analytics: false
 iap: false
+adNetwork: ""           # e.g. Google AdMob when ads: true
+adPublisherId: ""       # e.g. pub-…
 ```
 
 Body: extra landing paragraphs. Support/privacy pages derive from flags above plus body if needed.
+
+When `ads: true`, also publish IAB `public/app-ads.txt` at `https://kadirkasim.com/app-ads.txt`.
 
 ## Rules
 

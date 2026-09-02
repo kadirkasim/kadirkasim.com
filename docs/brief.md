@@ -4,7 +4,7 @@ HQ of **Kadir Kasim** at kadirkasim.com. Indie: games, apps, sites; marketing th
 
 ## Products
 
-- **Solitaire Friends** — live App Store. Name may change (Duels / Challengers). Store URL: unknown
+- **Solitaire Friends** — live App Store. Version 2.0 uses Google AdMob (`pub-2220825134745688`). `app-ads.txt` at site root. Store URL: unknown
 - **Kanvra** — MVP. Personal Kanban + routines. On-device; no account, ads, analytics, IAP. Store URL: unknown
 
 ## Intended paths (do not change after App Store submit)

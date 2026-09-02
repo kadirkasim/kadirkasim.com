@@ -26,6 +26,8 @@ export type ProductContent = {
   ads: boolean;
   analytics: boolean;
   iap: boolean;
+  adNetwork: string;
+  adPublisherId: string;
   body: string;
 };
 
@@ -58,6 +60,8 @@ export function getProduct(slug: string): ProductContent {
     ads: Boolean(data.ads),
     analytics: Boolean(data.analytics),
     iap: Boolean(data.iap),
+    adNetwork: String(data.adNetwork ?? ""),
+    adPublisherId: String(data.adPublisherId ?? ""),
     body: content.trim(),
   };
 }

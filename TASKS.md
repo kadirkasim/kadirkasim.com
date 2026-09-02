@@ -19,7 +19,7 @@ Local: `npm run dev` → http://localhost:3000
 - [x] `content/site.md`
 - [x] `content/products/kanvra.md`
 - [x] `content/products/solitaire-friends.md`
-- [ ] Solitaire Friends: confirm ads / analytics / IAP for privacy (today flags are conservative)
+- [x] Solitaire Friends: ads via Google AdMob (`app-ads.txt` + privacy/support)
 - [ ] Paste real App Store URLs into those two files when they exist (empty = no fake button)
 
 ---
@@ -64,8 +64,8 @@ Local: `npm run dev` → http://localhost:3000
 
 - [x] Local git (`main`, first commit)
 - [x] GitHub repo + push: https://github.com/kadirkasim/kadirkasim.com
-- [ ] Vercel Hobby deploy
-- [ ] `kadirkasim.com` DNS + HTTPS
+- [x] Vercel Hobby deploy
+- [x] `kadirkasim.com` DNS + HTTPS
 - [ ] Open and click all seven URLs on the live domain
 - [ ] Put Kanvra support + privacy URLs in App Store Connect
 - [ ] Put Solitaire Friends support + privacy URLs in App Store Connect (if listing needs update)
