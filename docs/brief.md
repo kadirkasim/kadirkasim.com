@@ -5,7 +5,7 @@ HQ of **Kadir Kasim** at kadirkasim.com. Indie: games, apps, sites; marketing th
 ## Products
 
 - **Solitaire Friends 2026** — [App Store](https://apps.apple.com/us/app/solitaire-friends-2026/id6754052336). Version 2.0 uses Google AdMob (`pub-2220825134745688`). `app-ads.txt` at site root.
-- **Kanvra** — MVP. Personal Kanban + routines. On-device; no account, ads, analytics, IAP. Store URL: unknown
+- **Kanvra** — [App Store](https://apps.apple.com/us/app/kanvra/id6804647699). Personal Kanban + routines. On-device; no account, ads, analytics, IAP.
 
 ## Intended paths (do not change after App Store submit)
 
@@ -15,4 +15,4 @@ HQ of **Kadir Kasim** at kadirkasim.com. Indie: games, apps, sites; marketing th
 
 ## Unknown (do not invent)
 
-YouTube URL, both store URLs, Instagram (none yet).
+YouTube URL, Instagram (none yet).
