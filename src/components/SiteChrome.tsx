@@ -4,7 +4,6 @@ import { getSite } from "@/lib/content";
 const nav = [
   { href: "/apps/kanvra", label: "Apps" },
   { href: "/games/solitaire-friends", label: "Games" },
-  { href: "/#work", label: "Work" },
 ];
 
 export function SiteHeader() {
@@ -32,9 +31,8 @@ export function SiteFooter() {
   const site = getSite();
   return (
     <footer className="mt-20 border-t border-line py-10 font-sans text-sm text-muted">
-      <p className="tracking-[0.12em] uppercase">{site.title}</p>
-      <p className="mt-2">Headquarters. Proof is what is live.</p>
-      <p className="mt-3">
+      <p>{site.title}</p>
+      <p className="mt-2">
         <a href={`mailto:${site.supportEmail}`} className="text-gold no-underline hover:text-paper">
           {site.supportEmail}
         </a>
