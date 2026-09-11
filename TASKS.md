@@ -9,6 +9,7 @@ Copy lives in `content/`. Pages read it.
 - `/` — HQ coming soon (who it is + doors to products)
 - `/apps/kanvra` · `/apps/kanvra/support` · `/apps/kanvra/privacy`
 - `/games/solitaire-friends` · `/games/solitaire-friends/support` · `/games/solitaire-friends/privacy`
+- `/games/hue-stack` · `/games/hue-stack/support` · `/games/hue-stack/privacy`
 
 Local: `npm run dev` → http://localhost:3000
 
@@ -19,6 +20,7 @@ Local: `npm run dev` → http://localhost:3000
 - [x] `content/site.md`
 - [x] `content/products/kanvra.md`
 - [x] `content/products/solitaire-friends.md`
+- [x] `content/products/hue-stack.md`
 - [x] Solitaire Friends: ads via Google AdMob (`app-ads.txt` + privacy/support)
 - [x] Kanvra App Store URL in `content/products/kanvra.md`
 
@@ -60,6 +62,15 @@ Local: `npm run dev` → http://localhost:3000
 
 ---
 
+## Phase 4b — Hue Stack (game)
+
+- [x] `/games/hue-stack` landing
+- [x] `/games/hue-stack/support`
+- [x] `/games/hue-stack/privacy`
+- [ ] App Store URL when the listing is public
+
+---
+
 ## Phase 5 — Ship
 
 - [x] Local git (`main`, first commit)
@@ -69,6 +80,7 @@ Local: `npm run dev` → http://localhost:3000
 - [ ] Open and click all seven URLs on the live domain
 - [ ] Put Kanvra support + privacy URLs in App Store Connect
 - [ ] Put Solitaire Friends support + privacy URLs in App Store Connect (if listing needs update)
+- [ ] Put Hue Stack support + privacy URLs in App Store Connect
 
 ---
 

@@ -20,7 +20,7 @@ export function ProductLanding({ product }: { product: ProductContent }) {
       <div className="grid items-start gap-10 md:grid-cols-[1fr_16rem]">
         <div>
           <p className="mb-3 font-sans text-[0.7rem] uppercase tracking-[0.18em] text-gold">
-            {kindLabel} · Live · iPhone
+            {kindLabel} · {product.status === "live" ? "Live" : "Coming soon"} · iPhone
           </p>
           <h1 className="text-4xl font-normal leading-tight tracking-tight md:text-5xl">
             {product.title}
