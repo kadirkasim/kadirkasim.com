@@ -59,7 +59,9 @@ export function ProductLanding({ product }: { product: ProductContent }) {
         <div>
           <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-gold">Privacy</dt>
           <dd className="mt-2 text-muted">
-            {product.ads ? "On-device play, ads by Google" : "On-device. No ads, no tracking."}
+            {product.ads
+              ? `On-device play, ads through ${product.adNetwork || "a partner"}`
+              : "On-device. No ads, no tracking."}
           </dd>
         </div>
         <div>
@@ -119,8 +121,8 @@ export function SupportPage({
         ) : null}
         {product.ads ? (
           <p>
-            Version 2.0 shows ads from {product.adNetwork || "an advertising partner"}. If an ad is
-            broken or inappropriate, mention {product.title} in your email.
+            {product.title} shows ads from {product.adNetwork || "an advertising partner"}. If an ad
+            is broken or inappropriate, mention {product.title} in your email.
           </p>
         ) : null}
         <p>
@@ -168,17 +170,28 @@ export function PrivacyPage({ product }: { product: ProductContent }) {
           <>
             <h2 className="pt-4 text-lg font-normal text-paper">Advertising</h2>
             <p>
-              This game shows ads through {product.adNetwork || "a third-party ad network"}
-              {product.adPublisherId ? ` (${product.adPublisherId})` : ""}. That partner may
-              collect device and advertising identifiers to serve and measure ads. We do not
-              receive your game progress on our servers.
+              {product.adPartners
+                ? `This game shows ads through ${product.adNetwork || "a third-party ad network"}. Current ad networks are ${product.adPartners}. Those partners may collect device and advertising identifiers${product.attPrompt ? ", including IDFA if you allow tracking," : ""} to serve${product.attPrompt ? ", personalize," : ""} and measure ads. We do not receive your game progress on our servers.`
+                : `This game shows ads through ${product.adNetwork || "a third-party ad network"}${product.adPublisherId ? ` (${product.adPublisherId})` : ""}. That partner may collect device and advertising identifiers to serve and measure ads. We do not receive your game progress on our servers.`}
             </p>
+            {product.attPrompt ? (
+              <p>
+                On iOS, Apple’s Allow Tracking prompt appears before ads start. If you select Ask
+                App Not to Track, ads still show, but they are not personalized using your
+                advertising identifier (IDFA).
+              </p>
+            ) : null}
             <p>
-              Google’s privacy policy:{" "}
-              <a href="https://policies.google.com/privacy" className="text-gold">
-                policies.google.com/privacy
-              </a>
-              . Authorized sellers are listed at{" "}
+              {product.adPrivacyPolicies.map((policy) => (
+                <span key={policy.url}>
+                  {policy.name}’s privacy policy:{" "}
+                  <a href={policy.url} className="text-gold">
+                    {policy.url.replace(/^https:\/\//, "")}
+                  </a>
+                  .{" "}
+                </span>
+              ))}
+              Authorized sellers are listed at{" "}
               <a href="/app-ads.txt" className="text-gold">
                 kadirkasim.com/app-ads.txt
               </a>
@@ -190,14 +203,22 @@ export function PrivacyPage({ product }: { product: ProductContent }) {
         <ul className="list-disc space-y-1 pl-5">
           <li>
             {product.ads
-              ? `Advertising is used${product.adNetwork ? ` (${product.adNetwork})` : ""}.`
+              ? `Advertising is used${
+                  product.adUsedLabel
+                    ? ` (${product.adUsedLabel})`
+                    : product.adNetwork
+                      ? ` (${product.adNetwork})`
+                      : ""
+                }.`
               : "No advertising stated."}
           </li>
           <li>
             {product.analytics
               ? "Analytics may be used."
               : product.ads
-                ? "No separate analytics product is stated beyond the ad partner."
+                ? `No separate analytics product is stated beyond the ad ${
+                    product.adPartners ? "partners" : "partner"
+                  }.`
                 : "No identifying analytics stated."}
           </li>
           <li>

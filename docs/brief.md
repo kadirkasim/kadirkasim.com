@@ -4,7 +4,7 @@ HQ of **Kadir Kasim** at kadirkasim.com. Indie: games, apps, sites; marketing th
 
 ## Products
 
-- **Solitaire Friends 2026** — [App Store](https://apps.apple.com/us/app/solitaire-friends-2026/id6754052336). Version 2.0 uses Google AdMob (`pub-2220825134745688`). `app-ads.txt` at site root.
+- **Solitaire Friends 2026** — [App Store](https://apps.apple.com/us/app/solitaire-friends-2026/id6754052336). Version 2.1 uses Unity LevelPlay (ironSource): Unity Ads and ironSource Ads. `app-ads.txt` at site root.
 - **Hue Stack** — color sorting puzzle. Version 1. No ads, analytics, or IAP. Listing not public yet.
 - **Kanvra** — [App Store](https://apps.apple.com/us/app/kanvra/id6804647699). Personal Kanban + routines. On-device; no account, ads, analytics, IAP.
 

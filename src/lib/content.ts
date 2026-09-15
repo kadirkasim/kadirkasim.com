@@ -27,7 +27,11 @@ export type ProductContent = {
   analytics: boolean;
   iap: boolean;
   adNetwork: string;
+  adPartners: string;
+  adUsedLabel: string;
   adPublisherId: string;
+  attPrompt: boolean;
+  adPrivacyPolicies: { name: string; url: string }[];
   body: string;
 };
 
@@ -61,9 +65,26 @@ export function getProduct(slug: string): ProductContent {
     analytics: Boolean(data.analytics),
     iap: Boolean(data.iap),
     adNetwork: String(data.adNetwork ?? ""),
+    adPartners: String(data.adPartners ?? ""),
+    adUsedLabel: String(data.adUsedLabel ?? ""),
     adPublisherId: String(data.adPublisherId ?? ""),
+    attPrompt: Boolean(data.attPrompt),
+    adPrivacyPolicies: parseAdPrivacyPolicies(data.adPrivacyPolicies),
     body: content.trim(),
   };
+}
+
+function parseAdPrivacyPolicies(value: unknown): { name: string; url: string }[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((item) => {
+      if (!item || typeof item !== "object") return null;
+      const policy = item as { name?: unknown; url?: unknown };
+      const name = String(policy.name ?? "").trim();
+      const url = String(policy.url ?? "").trim();
+      return name && url ? { name, url } : null;
+    })
+    .filter((policy): policy is { name: string; url: string } => policy !== null);
 }
 
 export function productBasePath(product: ProductContent) {

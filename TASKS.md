@@ -21,7 +21,7 @@ Local: `npm run dev` → http://localhost:3000
 - [x] `content/products/kanvra.md`
 - [x] `content/products/solitaire-friends.md`
 - [x] `content/products/hue-stack.md`
-- [x] Solitaire Friends: ads via Google AdMob (`app-ads.txt` + privacy/support)
+- [x] Solitaire Friends: ads via Unity LevelPlay (`app-ads.txt` + privacy/support)
 - [x] Kanvra App Store URL in `content/products/kanvra.md`
 
 ---

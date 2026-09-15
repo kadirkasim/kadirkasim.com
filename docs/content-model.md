@@ -23,8 +23,12 @@ onDevice: true
 ads: false
 analytics: false
 iap: false
-adNetwork: ""           # e.g. Google AdMob when ads: true
-adPublisherId: ""       # e.g. pub-…
+adNetwork: ""           # e.g. Unity LevelPlay (ironSource) when ads: true
+adPartners: ""          # e.g. Unity Ads and ironSource Ads
+adUsedLabel: ""         # privacy “Advertising is used (…).”
+adPublisherId: ""       # e.g. pub-… when the network uses one
+attPrompt: false        # iOS Allow Tracking copy when true
+adPrivacyPolicies: []   # [{ name, url }] partner policies
 ```
 
 Body: extra landing paragraphs. Support/privacy pages derive from flags above plus body if needed.
