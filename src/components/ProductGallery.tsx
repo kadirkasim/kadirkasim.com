@@ -30,7 +30,7 @@ export function ProductGallery({ title, shots, ui }: Props) {
           <p className="eyebrow">{ui.gallery}</p>
           <p className="mt-3 text-[14px] text-muted">{ui.galleryHint}</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 md:hidden">
           <button
             type="button"
             onClick={() => scrollBy(-1)}
@@ -50,29 +50,31 @@ export function ProductGallery({ title, shots, ui }: Props) {
         </div>
       </div>
 
-      <div
-        ref={scrollerRef}
-        className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-8 md:gap-6 [&::-webkit-scrollbar]:hidden"
-      >
-        {shots.map((src, i) => (
-          <figure
-            key={src}
-            className="relative w-[min(72vw,16.5rem)] shrink-0 snap-center overflow-hidden rounded-[1.5rem] border border-line bg-elevated p-3 md:w-[17.5rem]"
-          >
-            <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.1rem] bg-void">
-              <Image
-                src={src}
-                alt={`${title} screen ${i + 1}`}
-                fill
-                sizes="(min-width: 768px) 280px, 72vw"
-                className="object-contain object-center"
-              />
-            </div>
-            <figcaption className="mt-3 text-center text-[12px] text-faint">
-              {String(i + 1).padStart(2, "0")} / {String(shots.length).padStart(2, "0")}
-            </figcaption>
-          </figure>
-        ))}
+      <div className="mt-8 px-5 sm:px-8">
+        <div
+          ref={scrollerRef}
+          className="mx-auto flex w-full max-w-[1180px] snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] md:justify-center md:gap-6 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden"
+        >
+          {shots.map((src, i) => (
+            <figure
+              key={src}
+              className="relative w-[min(72vw,16.5rem)] shrink-0 snap-center overflow-hidden rounded-[1.5rem] border border-line bg-elevated p-3 md:w-64"
+            >
+              <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.1rem] bg-void">
+                <Image
+                  src={src}
+                  alt={`${title} screen ${i + 1}`}
+                  fill
+                  sizes="(min-width: 768px) 280px, 72vw"
+                  className="object-contain object-center"
+                />
+              </div>
+              <figcaption className="mt-3 text-center text-[12px] text-faint">
+                {String(i + 1).padStart(2, "0")} / {String(shots.length).padStart(2, "0")}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     </section>
   );

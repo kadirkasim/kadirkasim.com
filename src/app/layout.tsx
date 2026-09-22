@@ -23,6 +23,33 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description: site.tagline,
     metadataBase: new URL("https://kadirkasim.com"),
+    icons: {
+      icon: [
+        {
+          url: "/brand/favicon-light-192.png",
+          type: "image/png",
+          media: "(prefers-color-scheme: light)",
+        },
+        {
+          url: "/brand/favicon-dark-192.png",
+          type: "image/png",
+          media: "(prefers-color-scheme: dark)",
+        },
+        {
+          url: "/brand/favicon-light.png",
+          sizes: "32x32",
+          type: "image/png",
+          media: "(prefers-color-scheme: light)",
+        },
+        {
+          url: "/brand/favicon-dark.png",
+          sizes: "32x32",
+          type: "image/png",
+          media: "(prefers-color-scheme: dark)",
+        },
+      ],
+      apple: [{ url: "/brand/icon-apple-180.png", sizes: "180x180", type: "image/png" }],
+    },
   };
 }
 
