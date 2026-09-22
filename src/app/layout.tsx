@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Geist } from "next/font/google";
+import { JsonLd, personJsonLd, websiteJsonLd } from "@/components/JsonLd";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { getSite, listProducts, productBasePath } from "@/lib/content";
 import { getLocale } from "@/lib/locale";
@@ -8,7 +9,7 @@ import { getUi } from "@/lib/ui";
 import "./globals.css";
 
 const sans = Geist({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-geist",
   display: "swap",
 });
@@ -23,6 +24,14 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description: site.tagline,
     metadataBase: new URL("https://kadirkasim.com"),
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      siteName: site.title,
+    },
+    twitter: {
+      card: "summary_large_image",
+    },
     icons: {
       icon: [
         {
@@ -65,6 +74,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang={locale}>
       <body className={`${sans.variable} min-h-screen bg-void font-sans text-ink antialiased`}>
+        <JsonLd data={[personJsonLd(), websiteJsonLd()]} />
         <a
           href="#content"
           className="absolute left-4 top-4 z-[80] -translate-y-16 rounded-full bg-elevated px-4 py-2 text-sm text-ink focus:translate-y-0"

@@ -63,10 +63,11 @@ export function ProductGallery({ title, shots, ui }: Props) {
               <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.1rem] bg-void">
                 <Image
                   src={src}
-                  alt={`${title} screen ${i + 1}`}
+                  alt={`${title} screenshot ${i + 1}`}
                   fill
-                  sizes="(min-width: 768px) 280px, 72vw"
+                  sizes="(min-width: 768px) 256px, 72vw"
                   className="object-contain object-center"
+                  priority={i === 0}
                 />
               </div>
               <figcaption className="mt-3 text-center text-[12px] text-faint">

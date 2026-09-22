@@ -142,7 +142,7 @@ export function ProductLanding({ product, locale }: { product: ProductContent; l
                 {next.icon ? (
                   <Image
                     src={next.icon}
-                    alt=""
+                    alt={`${next.title} icon`}
                     width={48}
                     height={48}
                     className="h-12 w-12 rounded-[0.85rem] border border-white/10"

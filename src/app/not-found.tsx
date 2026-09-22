@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { getLocale } from "@/lib/locale";
 import { getUi } from "@/lib/ui";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: true },
+};
 
 export default async function NotFound() {
   const locale = await getLocale();

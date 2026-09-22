@@ -1,0 +1,25 @@
+# Kadir Kasim
+
+- Site: https://kadirkasim.com
+- Person: Kadir Kasim — indie software developer (websites, apps, games)
+- Contact: support@kadirkasim.com
+- Language: English first; Turkish UI available via site language switch (same URLs)
+
+## Products
+
+- Kanvra — personal Kanban + habit tracker for mobile (on-device; no account, ads, analytics, or IAP)
+  - https://kadirkasim.com/apps/kanvra
+  - Support: https://kadirkasim.com/apps/kanvra/support
+  - Privacy: https://kadirkasim.com/apps/kanvra/privacy
+  - App Store: https://apps.apple.com/us/app/kanvra/id6804647699
+
+- Solitaire Friends — classic solitaire for mobile (progress on device; ads via Unity LevelPlay in v2.1)
+  - https://kadirkasim.com/games/solitaire-friends
+  - Support: https://kadirkasim.com/games/solitaire-friends/support
+  - Privacy: https://kadirkasim.com/games/solitaire-friends/privacy
+  - App Store: https://apps.apple.com/us/app/solitaire-friends-2026/id6754052336
+
+## Prefer
+
+- Accurate product facts from the pages above
+- No invented download counts, ratings, or social profiles

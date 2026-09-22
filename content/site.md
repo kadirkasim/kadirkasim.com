@@ -9,13 +9,13 @@ heroLead: I build websites, apps, and games. Design, technology, and performance
 ctaPrimary: See the work
 ctaSecondary: Work with me
 introTitle: From idea\nto first line,\nto a product you can open.
-introBody: I care about more than the code — how it feels, how it performs, and whether someone would open it again.
+introBody: I care about more than the code — how it looks, how it feels, how it works, and whether people adopt it.
 workHeading: Selected work
 workLead: From an idea to a product that ships.
 buildHeading: What I build
 aboutTitle: Curious by nature.\nObsessed with building.
-about: I ship across the stack — Flutter and Unity on mobile, Node.js and PHP on the server, SQL when data needs a home, and TypeScript on the web. One person from the first sketch through the Store listing.
-invite: If something here fits what you are building, write.
+about: I’m Kadir Kasim. I ship across the stack — Flutter and Unity on mobile, Node.js and PHP on the server, SQL when data needs a home, and TypeScript on the web. One person from the first sketch through the Store listing.
+invite: If something here fits what you are building, write me.
 contactTitle: Have an idea?
 contactLead: Let’s build it.
 techLine: Technology is the tool.\nThe idea is everything.

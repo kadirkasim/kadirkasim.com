@@ -14,7 +14,7 @@ workHeading: Seçilmiş işler
 workLead: Fikirden yayınlanan ürüne.
 buildHeading: Neler üretiyorum
 aboutTitle: Doğuştan meraklı.\nÜretmeye tutkulu.
-about: Stack’in her katmanında üretiyorum — mobilde Flutter ve Unity, sunucuda Node.js ve PHP, veri gerektiğinde SQL, web’de TypeScript. İlk eskizden mağaza sayfasına kadar tek kişi.
+about: Ben Kadir Kasim. Stack’in her katmanında üretiyorum — mobilde Flutter ve Unity, sunucuda Node.js ve PHP, veri gerektiğinde SQL, web’de TypeScript. İlk eskizden mağaza sayfasına kadar tek kişi.
 invite: Burada bir şey uyuyorsa yazın.
 contactTitle: Bir fikriniz mi var?
 contactLead: Birlikte yapalım.

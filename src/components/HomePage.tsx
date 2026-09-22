@@ -29,7 +29,13 @@ export function HomePage({ site, locale }: { site: SiteContent; locale: Locale }
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(5,5,5,0.55)_70%,rgba(5,5,5,0.92)_100%)]" />
 
         <Container className="relative flex min-h-[100svh] flex-col justify-end pb-16 pt-28 md:pb-24 md:pt-32">
-          <p className="eyebrow">{site.role}</p>
+          <p className="eyebrow">
+            {site.title}
+            <span aria-hidden="true" className="mx-2 text-faint">
+              ·
+            </span>
+            {site.role}
+          </p>
           <h1 className="display mt-6 max-w-[14ch] text-[clamp(2.8rem,9.5vw,6.6rem)] text-ink">
             {headline.map((line) => (
               <span key={line} className="block">
