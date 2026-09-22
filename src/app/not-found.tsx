@@ -1,14 +1,18 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { getLocale } from "@/lib/locale";
+import { getUi } from "@/lib/ui";
 
-export default function NotFound() {
+export default async function NotFound() {
+  const locale = await getLocale();
+  const ui = getUi(locale);
   return (
-    <div className="bg-paper">
+    <div className="bg-void">
       <Container className="flex min-h-[60vh] flex-col justify-center py-24">
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Page not found</h1>
+        <h1 className="text-4xl font-semibold tracking-tight text-ink md:text-5xl">{ui.pageNotFound}</h1>
         <p className="mt-5 text-[17px] text-muted">
           <Link href="/" className="text-link no-underline hover:underline">
-            Back home
+            {ui.backHome}
           </Link>
         </p>
       </Container>

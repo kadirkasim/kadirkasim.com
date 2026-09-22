@@ -10,9 +10,12 @@ import {
   type ProductContent,
   type SiteContent,
 } from "@/lib/content";
+import type { Locale } from "@/lib/locale";
+import { getUi, kindLabel, type UiCopy } from "@/lib/ui";
 
-export function HomePage({ site }: { site: SiteContent }) {
-  const products = listProducts();
+export function HomePage({ site, locale }: { site: SiteContent; locale: Locale }) {
+  const ui = getUi(locale);
+  const products = listProducts(locale);
   const headline = lines(site.headline);
   const introTitle = lines(site.introTitle);
   const aboutTitle = lines(site.aboutTitle);
@@ -49,7 +52,7 @@ export function HomePage({ site }: { site: SiteContent }) {
               <span aria-hidden="true">→</span>
             </MagneticLink>
           </div>
-          <p className="mt-16 text-[11px] uppercase tracking-[0.28em] text-faint">Scroll to explore ↓</p>
+          <p className="mt-16 text-[11px] uppercase tracking-[0.28em] text-faint">{ui.scrollExplore}</p>
         </Container>
       </section>
 
@@ -75,7 +78,7 @@ export function HomePage({ site }: { site: SiteContent }) {
       <section id="work" className="scroll-mt-20 border-t border-line py-20 md:py-28">
         <Container>
           <Reveal>
-            <p className="eyebrow">Selected</p>
+            <p className="eyebrow">{ui.selected}</p>
             <h2 className="display mt-4 text-[clamp(2.2rem,5vw,3.8rem)]">{site.workHeading}</h2>
             {site.workLead ? <p className="mt-4 max-w-lg text-[1.05rem] text-muted">{site.workLead}</p> : null}
           </Reveal>
@@ -84,7 +87,7 @@ export function HomePage({ site }: { site: SiteContent }) {
             {products.map((product, index) => (
               <li key={product.slug} className="h-full">
                 <Reveal delay={index * 80} className="h-full">
-                  <WorkFeature product={product} />
+                  <WorkFeature product={product} locale={locale} ui={ui} />
                 </Reveal>
               </li>
             ))}
@@ -96,7 +99,7 @@ export function HomePage({ site }: { site: SiteContent }) {
         <section id="build" className="scroll-mt-20 border-t border-line py-20 md:py-28">
           <Container>
             <Reveal>
-              <p className="eyebrow">Focus</p>
+              <p className="eyebrow">{ui.focus}</p>
               <h2 className="display mt-4 text-[clamp(2.2rem,5vw,3.8rem)]">{site.buildHeading}</h2>
             </Reveal>
             <ul className="mt-12 grid items-stretch gap-4 md:grid-cols-2">
@@ -148,7 +151,7 @@ export function HomePage({ site }: { site: SiteContent }) {
         <section id="tech" className="scroll-mt-20 border-t border-line py-20 md:py-28">
           <Container>
             <Reveal>
-              <p className="eyebrow">Stack</p>
+              <p className="eyebrow">{ui.navStack}</p>
               <h2 className="display mt-4 max-w-[14ch] text-[clamp(2rem,5vw,3.6rem)]">
                 {techLine.map((line) => (
                   <span key={line} className="block">
@@ -183,7 +186,7 @@ export function HomePage({ site }: { site: SiteContent }) {
       <section id="about" className="scroll-mt-20 border-t border-line py-20 md:py-28">
         <Container className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <Reveal>
-            <p className="eyebrow">About</p>
+            <p className="eyebrow">{ui.navAbout}</p>
             <h2 className="display mt-4 max-w-[12ch] text-[clamp(2.2rem,5vw,3.8rem)]">
               {aboutTitle.map((line) => (
                 <span key={line} className="block">
@@ -209,7 +212,7 @@ export function HomePage({ site }: { site: SiteContent }) {
         />
         <Container className="relative py-28 text-center md:py-40">
           <Reveal>
-            <p className="eyebrow">Contact</p>
+            <p className="eyebrow">{ui.navContact}</p>
             <h2 className="display mx-auto mt-5 max-w-[12ch] text-[clamp(2.8rem,8vw,5.5rem)]">
               {site.contactTitle}
             </h2>
@@ -217,7 +220,7 @@ export function HomePage({ site }: { site: SiteContent }) {
               <p className="mx-auto mt-5 max-w-md text-[1.15rem] text-muted">{site.contactLead}</p>
             ) : null}
             <a href={`mailto:${site.supportEmail}`} className="btn-primary mt-10 inline-flex">
-              Get in touch
+              {ui.getInTouch}
               <span aria-hidden="true">→</span>
             </a>
             <p className="mt-8 text-[14px] text-muted">
@@ -232,9 +235,17 @@ export function HomePage({ site }: { site: SiteContent }) {
   );
 }
 
-function WorkFeature({ product }: { product: ProductContent }) {
+function WorkFeature({
+  product,
+  locale,
+  ui,
+}: {
+  product: ProductContent;
+  locale: Locale;
+  ui: UiCopy;
+}) {
   const href = productBasePath(product);
-  const kind = product.kind === "game" ? "Game" : "App";
+  const kind = kindLabel(locale, product.kind);
   const visual = product.icon || product.cover;
 
   return (
@@ -277,7 +288,7 @@ function WorkFeature({ product }: { product: ProductContent }) {
         </ul>
       ) : null}
       <p className="mt-auto pt-5 text-[13px] font-medium text-ink">
-        View
+        {ui.view}
         <span className="ml-1.5 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
       </p>
     </Link>

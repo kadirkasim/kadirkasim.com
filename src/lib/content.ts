@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { defaultLocale, type Locale } from "@/lib/locale";
 
 const root = process.cwd();
 
@@ -76,8 +77,16 @@ export type ProductContent = {
   body: string;
 };
 
-function read(rel: string) {
-  return fs.readFileSync(path.join(root, rel), "utf8");
+function resolveContentFile(locale: Locale, rel: string) {
+  if (locale !== defaultLocale) {
+    const localized = path.join(root, "content", locale, rel);
+    if (fs.existsSync(localized)) return localized;
+  }
+  return path.join(root, "content", rel);
+}
+
+function read(locale: Locale, rel: string) {
+  return fs.readFileSync(resolveContentFile(locale, rel), "utf8");
 }
 
 function strings(value: unknown): string[] {
@@ -139,8 +148,8 @@ function parsePolicies(value: unknown): { name: string; url: string }[] {
     .filter((item): item is { name: string; url: string } => item !== null);
 }
 
-export function getSite(): SiteContent {
-  const { data, content } = matter(read("content/site.md"));
+export function getSite(locale: Locale = defaultLocale): SiteContent {
+  const { data, content } = matter(read(locale, "site.md"));
   return {
     title: String(data.title),
     tagline: String(data.tagline),
@@ -168,8 +177,8 @@ export function getSite(): SiteContent {
   };
 }
 
-export function getProduct(slug: string): ProductContent {
-  const { data, content } = matter(read(`content/products/${slug}.md`));
+export function getProduct(slug: string, locale: Locale = defaultLocale): ProductContent {
+  const { data, content } = matter(read(locale, `products/${slug}.md`));
   return {
     title: String(data.title),
     slug: String(data.slug),
@@ -204,12 +213,12 @@ export function getProduct(slug: string): ProductContent {
 
 const order = ["kanvra", "solitaire-friends"];
 
-export function listProducts(): ProductContent[] {
+export function listProducts(locale: Locale = defaultLocale): ProductContent[] {
   const dir = path.join(root, "content/products");
   return fs
     .readdirSync(dir)
     .filter((file) => file.endsWith(".md"))
-    .map((file) => getProduct(file.replace(/\.md$/, "")))
+    .map((file) => getProduct(file.replace(/\.md$/, ""), locale))
     .sort((a, b) => {
       const ai = order.indexOf(a.slug);
       const bi = order.indexOf(b.slug);

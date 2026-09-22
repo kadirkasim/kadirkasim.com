@@ -3,23 +3,26 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Container } from "@/components/Container";
-
-const nav = [
-  { href: "/#work", label: "Work" },
-  { href: "/#build", label: "Build" },
-  { href: "/#tech", label: "Stack" },
-  { href: "/#about", label: "About" },
-  { href: "/#contact", label: "Contact" },
-];
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import type { Locale } from "@/lib/locale";
+import type { UiCopy } from "@/lib/ui";
 
 type HeaderProps = {
   title: string;
   status: string;
   email: string;
+  locale: Locale;
+  ui: UiCopy;
 };
 
-export function SiteHeader({ title, status, email }: HeaderProps) {
+export function SiteHeader({ title, status, email, locale, ui }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const nav = [
+    { href: "/#build", label: ui.focus },
+    { href: "/#tech", label: ui.navStack },
+    { href: "/#about", label: ui.navAbout },
+    { href: "/#contact", label: ui.navContact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -36,8 +39,8 @@ export function SiteHeader({ title, status, email }: HeaderProps) {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <Container className="flex h-16 items-center justify-between gap-6">
-        <Link href="/" className="text-[15px] font-medium tracking-tight text-ink no-underline">
+      <Container className="flex h-16 items-center justify-between gap-3 sm:gap-6">
+        <Link href="/" className="shrink-0 text-[15px] font-medium tracking-tight text-ink no-underline">
           {title}
         </Link>
         <nav className="hidden items-center gap-7 text-[13px] text-muted md:flex">
@@ -56,9 +59,12 @@ export function SiteHeader({ title, status, email }: HeaderProps) {
             </span>
           ) : null}
         </nav>
-        <a href={`mailto:${email}`} className="text-[13px] text-muted no-underline hover:text-ink md:hidden">
-          Write
-        </a>
+        <div className="flex items-center gap-3 sm:gap-4">
+          <LanguageSwitcher locale={locale} label={ui.language} />
+          <a href={`mailto:${email}`} className="text-[13px] text-muted no-underline hover:text-ink md:hidden">
+            {ui.write}
+          </a>
+        </div>
       </Container>
     </header>
   );
@@ -69,9 +75,10 @@ type FooterProps = {
   tagline: string;
   email: string;
   products: { title: string; href: string }[];
+  designedWith: string;
 };
 
-export function SiteFooter({ title, tagline, email, products }: FooterProps) {
+export function SiteFooter({ title, tagline, email, products, designedWith }: FooterProps) {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-line bg-void">
@@ -95,7 +102,7 @@ export function SiteFooter({ title, tagline, email, products }: FooterProps) {
         <p>
           © {year} {title}
         </p>
-        <p>Designed & built with curiosity.</p>
+        <p>{designedWith}</p>
       </Container>
     </footer>
   );

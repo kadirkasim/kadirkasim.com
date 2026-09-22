@@ -6,8 +6,16 @@ import { ProductGallery } from "@/components/ProductGallery";
 import { Reveal } from "@/components/Reveal";
 import type { ProductContent } from "@/lib/content";
 import { listProducts, productBasePath } from "@/lib/content";
+import type { Locale } from "@/lib/locale";
+import {
+  adsPrivacyBody,
+  advertisingUsedLine,
+  analyticsLine,
+  getUi,
+  kindLabel,
+} from "@/lib/ui";
 
-function Back({ href = "/", label = "Home" }: { href?: string; label?: string }) {
+function Back({ href = "/", label }: { href?: string; label: string }) {
   return (
     <Link href={href} className="text-[13px] text-faint no-underline transition-colors hover:text-ink">
       ← {label}
@@ -15,15 +23,16 @@ function Back({ href = "/", label = "Home" }: { href?: string; label?: string })
   );
 }
 
-export function ProductLanding({ product }: { product: ProductContent }) {
+export function ProductLanding({ product, locale }: { product: ProductContent; locale: Locale }) {
+  const ui = getUi(locale);
   const base = productBasePath(product);
-  const kind = product.kind === "game" ? "Game" : "App";
+  const kind = kindLabel(locale, product.kind);
   const shots = product.screenshots.length
     ? product.screenshots
     : product.cover
       ? [product.cover]
       : [];
-  const products = listProducts();
+  const products = listProducts(locale);
   const index = products.findIndex((item) => item.slug === product.slug);
   const next = products[(index + 1) % Math.max(products.length, 1)];
 
@@ -31,7 +40,7 @@ export function ProductLanding({ product }: { product: ProductContent }) {
     <article>
       <section className="border-b border-line pt-28 md:pt-32">
         <Container className="pb-16 md:pb-24">
-          <Back />
+          <Back label={ui.home} />
           <Reveal>
             <div className="mt-12 flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
               {product.icon ? (
@@ -57,14 +66,14 @@ export function ProductLanding({ product }: { product: ProductContent }) {
                 <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[14px]">
                   {product.storeUrl ? (
                     <a href={product.storeUrl} className="text-link" rel="noreferrer" target="_blank">
-                      App Store
+                      {ui.appStore}
                     </a>
                   ) : null}
                   <Link href={`${base}/support`} className="text-link">
-                    Support
+                    {ui.support}
                   </Link>
                   <Link href={`${base}/privacy`} className="text-link">
-                    Privacy
+                    {ui.privacy}
                   </Link>
                 </div>
               </div>
@@ -78,13 +87,13 @@ export function ProductLanding({ product }: { product: ProductContent }) {
           <Container className="grid gap-12 md:grid-cols-2 md:gap-16">
             {product.problem ? (
               <Reveal>
-                <p className="eyebrow">Problem</p>
+                <p className="eyebrow">{ui.problem}</p>
                 <p className="mt-4 text-[1.05rem] leading-[1.8] text-muted">{product.problem}</p>
               </Reveal>
             ) : null}
             {product.solution ? (
               <Reveal delay={80}>
-                <p className="eyebrow">Approach</p>
+                <p className="eyebrow">{ui.approach}</p>
                 <p className="mt-4 text-[1.05rem] leading-[1.8] text-muted">{product.solution}</p>
               </Reveal>
             ) : null}
@@ -109,7 +118,7 @@ export function ProductLanding({ product }: { product: ProductContent }) {
         <section className="border-b border-line py-16 md:py-20">
           <Container>
             <Reveal>
-              <p className="eyebrow">Technologies</p>
+              <p className="eyebrow">{ui.technologies}</p>
               <ul className="mt-6 flex flex-wrap gap-2">
                 {product.technologies.map((tech) => (
                   <li key={tech} className="rounded-full border border-line px-4 py-2 text-[14px] text-muted">
@@ -122,13 +131,13 @@ export function ProductLanding({ product }: { product: ProductContent }) {
         </section>
       ) : null}
 
-      {shots.length ? <ProductGallery title={product.title} shots={shots} /> : null}
+      {shots.length ? <ProductGallery title={product.title} shots={shots} ui={ui} /> : null}
 
       {next && next.slug !== product.slug ? (
         <section className="py-20 md:py-28">
           <Container>
             <Reveal>
-              <p className="eyebrow">Next</p>
+              <p className="eyebrow">{ui.next}</p>
               <Link href={productBasePath(next)} className="group mt-4 flex items-center gap-4 no-underline">
                 {next.icon ? (
                   <Image
@@ -173,33 +182,42 @@ function DocShell({
   );
 }
 
-export function SupportPage({ product, email }: { product: ProductContent; email: string }) {
+export function SupportPage({
+  product,
+  email,
+  locale,
+}: {
+  product: ProductContent;
+  email: string;
+  locale: Locale;
+}) {
+  const ui = getUi(locale);
   const base = productBasePath(product);
+  const partner = product.adNetwork || (locale === "tr" ? "bir reklam ortağı" : "an advertising partner");
   return (
-    <DocShell product={product} eyebrow="Support">
+    <DocShell product={product} eyebrow={ui.support}>
       <div className="mt-8 space-y-5 text-[1.05rem] leading-[1.8] text-muted">
         <p>
-          Email{" "}
+          {locale === "tr" ? "E-posta" : "Email"}{" "}
           <a href={`mailto:${email}`} className="text-link">
             {email}
           </a>
-          . Include your device, iOS version, and what you expected to happen.
+          . {ui.supportLead}
         </p>
         {product.onDevice ? (
           <p>
-            {product.title} keeps {product.kind === "game" ? "game" : "app"} data on your device.
-            Reinstalling removes local data.
+            {product.title}{" "}
+            {product.kind === "game" ? ui.supportDeviceGame : ui.supportDeviceApp}
           </p>
         ) : null}
         {product.ads ? (
           <p>
-            {product.title} shows ads from {product.adNetwork || "an advertising partner"}. If an ad
-            is broken or inappropriate, mention {product.title} in your email.
+            {product.title} {ui.supportAdsPrefix} {partner}. {ui.supportAdsSuffix}
           </p>
         ) : null}
         <p>
           <Link href={`${base}/privacy`} className="text-link">
-            Privacy policy
+            {ui.privacyPolicy}
           </Link>
         </p>
       </div>
@@ -207,53 +225,48 @@ export function SupportPage({ product, email }: { product: ProductContent; email
   );
 }
 
-export function PrivacyPage({ product }: { product: ProductContent }) {
+export function PrivacyPage({ product, locale }: { product: ProductContent; locale: Locale }) {
+  const ui = getUi(locale);
   return (
-    <DocShell product={product} eyebrow={`Privacy · ${product.privacyUpdated}`}>
+    <DocShell product={product} eyebrow={`${ui.privacy} · ${product.privacyUpdated}`}>
       <div className="mt-8 space-y-8 text-[1.05rem] leading-[1.8] text-muted">
         <section>
-          <h2 className="text-[13px] uppercase tracking-[0.2em] text-faint">What this is</h2>
+          <h2 className="text-[13px] uppercase tracking-[0.2em] text-faint">{ui.whatThisIs}</h2>
           <p className="mt-4">{product.description}</p>
         </section>
         <section>
-          <h2 className="text-[13px] uppercase tracking-[0.2em] text-faint">Data</h2>
+          <h2 className="text-[13px] uppercase tracking-[0.2em] text-faint">{ui.data}</h2>
           {product.onDevice ? (
             <p className="mt-4">
-              {product.kind === "game"
-                ? "Game progress stays on your device."
-                : "Tasks and settings stay on your device."}{" "}
-              {product.title} does not require an account.
+              {product.kind === "game" ? ui.dataGame : ui.dataApp} {product.title} {ui.dataNoAccount}
             </p>
           ) : (
-            <p className="mt-4">See the product listing for how data is handled.</p>
+            <p className="mt-4">{ui.dataFallback}</p>
           )}
         </section>
         {product.ads ? (
           <section>
-            <h2 className="text-[13px] uppercase tracking-[0.2em] text-faint">Advertising</h2>
+            <h2 className="text-[13px] uppercase tracking-[0.2em] text-faint">{ui.advertising}</h2>
             <p className="mt-4">
-              {product.adPartners
-                ? `This game shows ads through ${product.adNetwork || "a third-party ad network"}. Current ad networks are ${product.adPartners}. Those partners may collect device and advertising identifiers${product.attPrompt ? ", including IDFA if you allow tracking," : ""} to serve${product.attPrompt ? ", personalize," : ""} and measure ads. We do not receive your game progress on our servers.`
-                : `This game shows ads through ${product.adNetwork || "a third-party ad network"}${product.adPublisherId ? ` (${product.adPublisherId})` : ""}. That partner may collect device and advertising identifiers to serve and measure ads. We do not receive your game progress on our servers.`}
+              {adsPrivacyBody(locale, {
+                adNetwork: product.adNetwork,
+                adPartners: product.adPartners,
+                adPublisherId: product.adPublisherId,
+                attPrompt: product.attPrompt,
+              })}
             </p>
-            {product.attPrompt ? (
-              <p className="mt-4">
-                On iOS, Apple’s Allow Tracking prompt appears before ads start. If you select Ask App
-                Not to Track, ads still show, but they are not personalized using your advertising
-                identifier (IDFA).
-              </p>
-            ) : null}
+            {product.attPrompt ? <p className="mt-4">{ui.attCopy}</p> : null}
             <p className="mt-4">
               {product.adPrivacyPolicies.map((policy) => (
                 <span key={policy.url}>
-                  {policy.name}’s privacy policy:{" "}
+                  {locale === "tr" ? `${policy.name} gizlilik politikası:` : `${policy.name}’s privacy policy:`}{" "}
                   <a href={policy.url} className="text-link">
                     {policy.url.replace(/^https:\/\//, "")}
                   </a>
                   .{" "}
                 </span>
               ))}
-              Authorized sellers are listed at{" "}
+              {ui.authorizedSellers}{" "}
               <a href="/app-ads.txt" className="text-link">
                 kadirkasim.com/app-ads.txt
               </a>
@@ -262,29 +275,23 @@ export function PrivacyPage({ product }: { product: ProductContent }) {
           </section>
         ) : null}
         <section>
-          <h2 className="text-[13px] uppercase tracking-[0.2em] text-faint">What we state here</h2>
+          <h2 className="text-[13px] uppercase tracking-[0.2em] text-faint">{ui.whatWeState}</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5">
             <li>
-              {product.ads
-                ? `Advertising is used${
-                    product.adUsedLabel
-                      ? ` (${product.adUsedLabel})`
-                      : product.adNetwork
-                        ? ` (${product.adNetwork})`
-                        : ""
-                  }.`
-                : "No advertising stated."}
+              {advertisingUsedLine(locale, {
+                ads: product.ads,
+                adUsedLabel: product.adUsedLabel,
+                adNetwork: product.adNetwork,
+              })}
             </li>
             <li>
-              {product.analytics
-                ? "Analytics may be used."
-                : product.ads
-                  ? `No separate analytics product is stated beyond the ad ${
-                      product.adPartners ? "partners" : "partner"
-                    }.`
-                  : "No identifying analytics stated."}
+              {analyticsLine(locale, {
+                analytics: product.analytics,
+                ads: product.ads,
+                adPartners: Boolean(product.adPartners),
+              })}
             </li>
-            <li>{product.iap ? "In-app purchases may be used." : "No in-app purchases stated."}</li>
+            <li>{product.iap ? ui.iapMay : ui.noIap}</li>
           </ul>
           {product.body ? <p className="mt-4">{product.body}</p> : null}
         </section>

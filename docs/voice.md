@@ -9,7 +9,7 @@ Do not render these words in the UI: Trust, Charisma, Labor, Creativity, Headqua
 - **Trust** — working store links, honest privacy, no fake metrics
 - **Charisma** — distinctive type, few words, presence
 - **Labor** — products that exist; how they were made can come later
-- **Creativity** — named work (Kanvra, Solitaire Friends 2026), not generic cards
+- **Creativity** — named work (Kanvra, Solitaire Friends), not generic cards
 
 Apps and games should *feel* those four. Copy names the product and what it does.
 

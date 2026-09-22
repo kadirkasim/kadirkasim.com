@@ -3,12 +3,15 @@
 import Image from "next/image";
 import { useRef } from "react";
 
+import type { UiCopy } from "@/lib/ui";
+
 type Props = {
   title: string;
   shots: string[];
+  ui: UiCopy;
 };
 
-export function ProductGallery({ title, shots }: Props) {
+export function ProductGallery({ title, shots, ui }: Props) {
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   const scrollBy = (direction: -1 | 1) => {
@@ -24,15 +27,15 @@ export function ProductGallery({ title, shots }: Props) {
     <section className="border-b border-line py-16 md:py-24">
       <div className="mx-auto flex w-full max-w-[1180px] items-end justify-between gap-4 px-5 sm:px-8">
         <div>
-          <p className="eyebrow">Gallery</p>
-          <p className="mt-3 text-[14px] text-muted">Swipe or use the arrows to browse screens.</p>
+          <p className="eyebrow">{ui.gallery}</p>
+          <p className="mt-3 text-[14px] text-muted">{ui.galleryHint}</p>
         </div>
         <div className="flex gap-2">
           <button
             type="button"
             onClick={() => scrollBy(-1)}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-elevated text-ink transition-colors hover:border-white/20 hover:bg-[#111]"
-            aria-label="Previous screenshots"
+            aria-label={ui.prevShots}
           >
             ←
           </button>
@@ -40,7 +43,7 @@ export function ProductGallery({ title, shots }: Props) {
             type="button"
             onClick={() => scrollBy(1)}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-elevated text-ink transition-colors hover:border-white/20 hover:bg-[#111]"
-            aria-label="Next screenshots"
+            aria-label={ui.nextShots}
           >
             →
           </button>

@@ -14,16 +14,16 @@ workHeading: Selected work
 workLead: From an idea to a product that ships.
 buildHeading: What I build
 aboutTitle: Curious by nature.\nObsessed with building.
-about: I ship across the stack — Flutter and Unity on the iPhone, Node.js and PHP on the server, SQL when data needs a home, and TypeScript on the web. One person from the first sketch through the App Store listing.
+about: I ship across the stack — Flutter and Unity on mobile, Node.js and PHP on the server, SQL when data needs a home, and TypeScript on the web. One person from the first sketch through the Store listing.
 invite: If something here fits what you are building, write.
 contactTitle: Have an idea?
 contactLead: Let’s build it.
 techLine: Technology is the tool.\nThe idea is everything.
 stack:
   - name: Flutter
-    note: Native-feeling iPhone apps with a single codebase.
+    note: Native-feeling mobile apps with a single codebase.
   - name: Unity
-    note: Games and interactive experiences for iOS.
+    note: Games and interactive experiences for mobile.
   - name: C#
     note: Gameplay systems and Unity tooling.
   - name: TypeScript
@@ -52,11 +52,11 @@ builds:
       - SQL-backed data when it needs to persist
   - label: Apps
     body: Mobile products aimed at a real problem — not a feature list.
-    detail: On-device tools with a clear job. Privacy-first when the product allows it. Shipped through the App Store.
+    detail: On-device tools with a clear job. Privacy-first when the product allows it. Shipped through the Store.
     points:
-      - Flutter on iPhone
+      - Flutter on mobile
       - Focused UX, few screens that matter
-      - Store-ready listings and support pages
+      - Store listings and support pages
   - label: Games
     body: Playable worlds built around feel, clarity, and pace.
     detail: From first deal to solved — systems, polish, and the quiet details that make a session feel finished.
@@ -70,7 +70,7 @@ builds:
     points:
       - APIs and server logic
       - Structured data in SQL
-      - Deployments that stay maintainable
+      - Deploys that stay simple
 ---
 
-I turn ideas into products you can open — on the App Store, in the browser, on your phone.
+I turn ideas into products you can open — on the Store, in the browser, on your phone.

@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import { SupportPage } from "@/components/ProductPages";
 import { getProduct, getSite } from "@/lib/content";
+import { getLocale } from "@/lib/locale";
+import { getUi } from "@/lib/ui";
 
-export function generateMetadata(): Metadata {
-  return { title: "Support — Solitaire Friends" };
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const ui = getUi(locale);
+  return { title: `${ui.support} — Solitaire Friends` };
 }
 
-export default function SolitaireSupport() {
-  return <SupportPage product={getProduct("solitaire-friends")} email={getSite().supportEmail} />;
+export default async function SolitaireSupport() {
+  const locale = await getLocale();
+  return (
+    <SupportPage
+      product={getProduct("solitaire-friends", locale)}
+      email={getSite(locale).supportEmail}
+      locale={locale}
+    />
+  );
 }

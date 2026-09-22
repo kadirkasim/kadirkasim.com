@@ -17,8 +17,8 @@ export function ProductVisual({
   if (!shots.length) return null;
 
   if (stacked && shots.length > 1) {
-    return <ShotStack shots={shots} alt={`${product.title} on iPhone`} />;
+    return <ShotStack shots={shots} alt={`${product.title} on mobile`} />;
   }
 
-  return <DeviceShot src={shots[0]} alt={`${product.title} on iPhone`} />;
+  return <DeviceShot src={shots[0]} alt={`${product.title} on mobile`} />;
 }
