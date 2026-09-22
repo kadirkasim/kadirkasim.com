@@ -3,11 +3,7 @@ import { getProduct, getSite, productBasePath } from "@/lib/content";
 
 export default function HomePage() {
   const site = getSite();
-  const products = [
-    getProduct("kanvra"),
-    getProduct("solitaire-friends"),
-    getProduct("hue-stack"),
-  ];
+  const products = [getProduct("kanvra"), getProduct("solitaire-friends")];
 
   return (
     <div>
