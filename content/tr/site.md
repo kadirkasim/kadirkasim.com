@@ -8,8 +8,8 @@ headline: Fikirler\ndijital ürüne dönüşür.
 heroLead: Web siteleri, uygulamalar ve oyunlar geliştiriyorum. Tasarım, teknoloji ve performans tek bir deneyimde.
 ctaPrimary: Öne çıkanlar
 ctaSecondary: Birlikte çalışalım
-introTitle: Fikirden\nilk satıra,\naçabileceğiniz bir ürüne.
-introBody: Sadece kodla ilgilenmiyorum — nasıl hissettirdiği, nasıl çalıştığı ve birinin tekrar açmak isteyip istemeyeceği de önemli.
+introTitle: Fikirden\nilk satıra,\nkullanacağınız bir ürüne.
+introBody: Sadece kodla ilgilenmiyorum — nasıl göründüğü, nasıl hissettirdiği, nasıl çalıştığı ve kullanıcının benimsemesi de önemli.
 workHeading: Seçilmiş işler
 workLead: Fikirden yayınlanan ürüne.
 buildHeading: Neler üretiyorum
@@ -73,4 +73,4 @@ builds:
       - Basit kalan dağıtımlar
 ---
 
-Fikirleri açabileceğiniz ürünlere dönüştürüyorum — mağazada, tarayıcıda, telefonda.
+Fikirleri kullanacağınız ürünlere dönüştürüyorum — mağazada, tarayıcıda, telefonda.
