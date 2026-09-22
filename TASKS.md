@@ -6,7 +6,7 @@ Copy lives in `content/`. Pages read it.
 
 **URLs (lock these):**
 
-- `/` — HQ coming soon (who it is + doors to products)
+- `/` — indie portfolio (who it is + doors to products)
 - `/apps/kanvra` · `/apps/kanvra/support` · `/apps/kanvra/privacy`
 - `/games/solitaire-friends` · `/games/solitaire-friends/support` · `/games/solitaire-friends/privacy`
 

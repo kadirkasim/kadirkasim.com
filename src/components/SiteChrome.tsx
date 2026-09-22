@@ -1,42 +1,102 @@
+"use client";
+
 import Link from "next/link";
-import { getSite } from "@/lib/content";
+import { useEffect, useState } from "react";
+import { Container } from "@/components/Container";
 
 const nav = [
-  { href: "/apps/kanvra", label: "Apps" },
-  { href: "/games/solitaire-friends", label: "Games" },
+  { href: "/#work", label: "Work" },
+  { href: "/#build", label: "Build" },
+  { href: "/#tech", label: "Stack" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
-export function SiteHeader() {
-  const site = getSite();
+type HeaderProps = {
+  title: string;
+  status: string;
+  email: string;
+};
+
+export function SiteHeader({ title, status, email }: HeaderProps) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="flex items-baseline justify-between border-b border-line py-8">
-      <Link
-        href="/"
-        className="font-sans text-[0.7rem] tracking-[0.22em] text-paper uppercase no-underline"
-      >
-        {site.title}
-      </Link>
-      <nav className="flex gap-6 font-sans text-sm text-muted">
-        {nav.map((item) => (
-          <Link key={item.href} href={item.href} className="text-muted no-underline hover:text-paper">
-            {item.label}
-          </Link>
-        ))}
-      </nav>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-[background,border-color,backdrop-filter] duration-300 ${
+        scrolled
+          ? "border-b border-line/80 bg-void/70 backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
+      <Container className="flex h-16 items-center justify-between gap-6">
+        <Link href="/" className="text-[15px] font-medium tracking-tight text-ink no-underline">
+          {title}
+        </Link>
+        <nav className="hidden items-center gap-7 text-[13px] text-muted md:flex">
+          {nav.map((item) => (
+            <Link key={item.href} href={item.href} className="no-underline transition-colors hover:text-ink">
+              {item.label}
+            </Link>
+          ))}
+          {status ? (
+            <span className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 text-[12px] text-muted">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/60" />
+                <span className="relative h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
+              {status}
+            </span>
+          ) : null}
+        </nav>
+        <a href={`mailto:${email}`} className="text-[13px] text-muted no-underline hover:text-ink md:hidden">
+          Write
+        </a>
+      </Container>
     </header>
   );
 }
 
-export function SiteFooter() {
-  const site = getSite();
+type FooterProps = {
+  title: string;
+  tagline: string;
+  email: string;
+  products: { title: string; href: string }[];
+};
+
+export function SiteFooter({ title, tagline, email, products }: FooterProps) {
+  const year = new Date().getFullYear();
   return (
-    <footer className="mt-20 border-t border-line py-10 font-sans text-sm text-muted">
-      <p>{site.title}</p>
-      <p className="mt-2">
-        <a href={`mailto:${site.supportEmail}`} className="text-gold no-underline hover:text-paper">
-          {site.supportEmail}
-        </a>
-      </p>
+    <footer className="border-t border-line bg-void">
+      <Container className="flex flex-col gap-8 py-12 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-[15px] font-medium tracking-tight text-ink">{title}</p>
+          <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-muted">{tagline}</p>
+        </div>
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-muted">
+          {products.map((product) => (
+            <Link key={product.href} href={product.href} className="no-underline hover:text-ink">
+              {product.title}
+            </Link>
+          ))}
+          <a href={`mailto:${email}`} className="text-link no-underline">
+            {email}
+          </a>
+        </div>
+      </Container>
+      <Container className="flex flex-col gap-2 border-t border-line py-6 text-[12px] text-faint sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {year} {title}
+        </p>
+        <p>Designed & built with curiosity.</p>
+      </Container>
     </footer>
   );
 }

@@ -4,7 +4,7 @@ All public wording is markdown in `content/`. Code renders it.
 
 ## Site (`content/site.md`)
 
-`name`, `tagline`, `position` (who you are in a few sentences).
+`title`, `tagline`, `supportEmail`, `role`, `headline`, `about`, `invite`, `workHeading`, `stackLead`, `stack`, `sites` (`title`, `url`, `kind`, `tagline`), `why` (`title` + `body` items). Body is the short position paragraph.
 
 ## Product (`content/products/<slug>.md`)
 
@@ -29,6 +29,8 @@ adUsedLabel: ""         # privacy “Advertising is used (…).”
 adPublisherId: ""       # e.g. pub-… when the network uses one
 attPrompt: false        # iOS Allow Tracking copy when true
 adPrivacyPolicies: []   # [{ name, url }] partner policies
+cover: ""               # /media/... hero screenshot
+screenshots: []         # additional /media/... shots
 ```
 
 Body: extra landing paragraphs. Support/privacy pages derive from flags above plus body if needed.

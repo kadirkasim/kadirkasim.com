@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" role="img" aria-label="Kanvra app icon">
+  <rect width="1024" height="1024" fill="#FBF7F2"/>
+  <g transform="translate(273 310) scale(4.05)">
+    <rect x="0" y="42" width="35.4" height="58" rx="9.9" fill="#4A90D9"/>
+    <rect x="41.3" y="0" width="35.4" height="100" rx="9.9" fill="#E8943A"/>
+    <rect x="82.6" y="24" width="35.4" height="76" rx="9.9" fill="#5BAF6F"/>
+  </g>
+</svg>

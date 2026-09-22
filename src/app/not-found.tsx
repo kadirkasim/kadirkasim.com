@@ -1,14 +1,17 @@
 import Link from "next/link";
+import { Container } from "@/components/Container";
 
 export default function NotFound() {
   return (
-    <div>
-      <h1 className="mb-4 text-4xl font-normal">Page not found</h1>
-      <p className="text-muted">
-        <Link href="/" className="text-gold">
-          Back to headquarters
-        </Link>
-      </p>
+    <div className="bg-paper">
+      <Container className="flex min-h-[60vh] flex-col justify-center py-24">
+        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Page not found</h1>
+        <p className="mt-5 text-[17px] text-muted">
+          <Link href="/" className="text-link no-underline hover:underline">
+            Back home
+          </Link>
+        </p>
+      </Container>
     </div>
   );
 }

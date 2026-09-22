@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Fraunces, Outfit } from "next/font/google";
+import { Geist } from "next/font/google";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { getSite } from "@/lib/content";
+import { getSite, listProducts, productBasePath } from "@/lib/content";
 import "./globals.css";
 
-const serif = Fraunces({
+const sans = Geist({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-const sans = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-geist",
   display: "swap",
 });
 
@@ -25,20 +19,34 @@ export function generateMetadata(): Metadata {
       template: `%s — ${site.title}`,
     },
     description: site.tagline,
+    metadataBase: new URL("https://kadirkasim.com"),
   };
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const site = getSite();
+  const products = listProducts().map((product) => ({
+    title: product.title,
+    href: productBasePath(product),
+  }));
+
   return (
     <html lang="en">
-      <body
-        className={`${serif.variable} ${serif.className} ${sans.variable} min-h-screen bg-bg text-paper antialiased`}
-      >
-        <div className="mx-auto w-[min(48rem,calc(100%-2.5rem))]">
-          <SiteHeader />
-          <main className="py-16">{children}</main>
-          <SiteFooter />
-        </div>
+      <body className={`${sans.variable} min-h-screen bg-void font-sans text-ink antialiased`}>
+        <a
+          href="#content"
+          className="absolute left-4 top-4 z-[80] -translate-y-16 rounded-full bg-elevated px-4 py-2 text-sm text-ink focus:translate-y-0"
+        >
+          Skip to content
+        </a>
+        <SiteHeader title={site.title} status={site.status} email={site.supportEmail} />
+        <main id="content">{children}</main>
+        <SiteFooter
+          title={site.title}
+          tagline={site.tagline}
+          email={site.supportEmail}
+          products={products}
+        />
       </body>
     </html>
   );
