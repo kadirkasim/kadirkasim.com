@@ -99,43 +99,45 @@ export function HomePage({ site }: { site: SiteContent }) {
               <p className="eyebrow">Focus</p>
               <h2 className="display mt-4 text-[clamp(2.2rem,5vw,3.8rem)]">{site.buildHeading}</h2>
             </Reveal>
-            <ul className="mt-12 grid gap-4 md:grid-cols-2">
+            <ul className="mt-12 grid items-stretch gap-4 md:grid-cols-2">
               {site.builds.map((item, index) => (
-                <Reveal key={item.label} delay={index * 60}>
-                  <li className="group relative overflow-hidden rounded-[1.75rem] border border-line bg-elevated p-7 transition duration-500 hover:border-white/15 hover:bg-[#111] md:p-9">
-                    <div
-                      aria-hidden="true"
-                      className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-accent/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-                    />
-                    <div className="relative">
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="text-[12px] font-medium uppercase tracking-[0.22em] text-accent">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                        <span className="rounded-full border border-line px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-faint transition-colors group-hover:border-white/20 group-hover:text-muted">
+                <li key={item.label} className="h-full">
+                  <Reveal delay={index * 60} className="h-full">
+                    <div className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-line bg-elevated p-7 transition duration-500 hover:border-white/15 hover:bg-[#111] md:p-9">
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-accent/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                      />
+                      <div className="relative flex h-full flex-col">
+                        <div className="flex items-center justify-between gap-4">
+                          <span className="text-[12px] font-medium uppercase tracking-[0.22em] text-accent">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                          <span className="rounded-full border border-line px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-faint transition-colors group-hover:border-white/20 group-hover:text-muted">
+                            {item.label}
+                          </span>
+                        </div>
+                        <h3 className="mt-6 text-[1.65rem] font-medium tracking-tight text-ink md:text-[1.85rem]">
                           {item.label}
-                        </span>
+                        </h3>
+                        <p className="mt-3 text-[1.02rem] leading-relaxed text-ink/80">{item.body}</p>
+                        {item.detail ? (
+                          <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">{item.detail}</p>
+                        ) : null}
+                        {item.points.length ? (
+                          <ul className="mt-auto space-y-2.5 border-t border-line/80 pt-5">
+                            {item.points.map((point) => (
+                              <li key={point} className="flex gap-3 text-[0.92rem] leading-snug text-muted">
+                                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent/80" aria-hidden="true" />
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
                       </div>
-                      <h3 className="mt-6 text-[1.65rem] font-medium tracking-tight text-ink md:text-[1.85rem]">
-                        {item.label}
-                      </h3>
-                      <p className="mt-3 text-[1.02rem] leading-relaxed text-ink/80">{item.body}</p>
-                      {item.detail ? (
-                        <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">{item.detail}</p>
-                      ) : null}
-                      {item.points.length ? (
-                        <ul className="mt-6 space-y-2.5 border-t border-line/80 pt-5">
-                          {item.points.map((point) => (
-                            <li key={point} className="flex gap-3 text-[0.92rem] leading-snug text-muted">
-                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent/80" aria-hidden="true" />
-                              <span>{point}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : null}
                     </div>
-                  </li>
-                </Reveal>
+                  </Reveal>
+                </li>
               ))}
             </ul>
           </Container>
