@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Geist } from "next/font/google";
 import { JsonLd, personJsonLd, websiteJsonLd } from "@/components/JsonLd";
+import { PostHogProvider } from "@/components/PostHogProvider";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { getSite, listProducts, productBasePath } from "@/lib/content";
 import { getLocale } from "@/lib/locale";
@@ -74,28 +75,31 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang={locale}>
       <body className={`${sans.variable} min-h-screen bg-void font-sans text-ink antialiased`}>
-        <JsonLd data={[personJsonLd(), websiteJsonLd()]} />
-        <a
-          href="#content"
-          className="absolute left-4 top-4 z-[80] -translate-y-16 rounded-full bg-elevated px-4 py-2 text-sm text-ink focus:translate-y-0"
-        >
-          {ui.skip}
-        </a>
-        <SiteHeader
-          title={site.title}
-          status={site.status}
-          email={site.supportEmail}
-          locale={locale}
-          ui={ui}
-        />
-        <main id="content">{children}</main>
-        <SiteFooter
-          title={site.title}
-          tagline={site.tagline}
-          email={site.supportEmail}
-          products={products}
-          designedWith={ui.designedWith}
-        />
+        <PostHogProvider>
+          <JsonLd data={[personJsonLd(), websiteJsonLd()]} />
+          <a
+            href="#content"
+            className="absolute left-4 top-4 z-[80] -translate-y-16 rounded-full bg-elevated px-4 py-2 text-sm text-ink focus:translate-y-0"
+          >
+            {ui.skip}
+          </a>
+          <SiteHeader
+            title={site.title}
+            status={site.status}
+            email={site.supportEmail}
+            locale={locale}
+            ui={ui}
+          />
+          <main id="content">{children}</main>
+          <SiteFooter
+            title={site.title}
+            tagline={site.tagline}
+            email={site.supportEmail}
+            products={products}
+            designedWith={ui.designedWith}
+            analyticsNote={site.analyticsNote}
+          />
+        </PostHogProvider>
       </body>
     </html>
   );

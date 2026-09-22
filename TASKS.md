@@ -72,6 +72,15 @@ Local: `npm run dev` → http://localhost:3000
 
 ---
 
+## Phase 6 — Website product analytics
+
+- [x] PostHog on kadirkasim.com (anonymous pageviews + `store_click`) — see [docs/analytics.md](docs/analytics.md)
+- [ ] Add `NEXT_PUBLIC_POSTHOG_KEY` + `NEXT_PUBLIC_POSTHOG_HOST` in Vercel and redeploy
+- [ ] Later: Solitaire session/retention events (LevelPlay remains ads source of truth; update privacy when shipping)
+- [ ] Never without product change: Kanvra analytics SDK
+
+---
+
 ## Not this list
 
-Instagram, YouTube cadence, blog, admin panel, Turkish locale, extra products.
+Instagram, YouTube cadence, blog, custom admin/CMS, extra products.

@@ -36,6 +36,8 @@ export type SiteContent = {
   techLine: string;
   stack: TechItem[];
   builds: BuildItem[];
+  /** One-line disclosure when the marketing site uses anonymous analytics. */
+  analyticsNote: string;
   body: string;
 };
 
@@ -173,6 +175,7 @@ export function getSite(locale: Locale = defaultLocale): SiteContent {
     techLine: String(data.techLine ?? ""),
     stack: parseTech(data.stack),
     builds: parseBuilds(data.builds),
+    analyticsNote: String(data.analyticsNote ?? ""),
     body: content.trim(),
   };
 }

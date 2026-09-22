@@ -8,3 +8,5 @@ npm run dev
 http://localhost:3000
 
 Copy: `content/`. Map: [AGENTS.md](AGENTS.md). Tasks: [TASKS.md](TASKS.md).
+
+Website analytics (optional): copy `.env.example` → `.env.local`, see [docs/analytics.md](docs/analytics.md).

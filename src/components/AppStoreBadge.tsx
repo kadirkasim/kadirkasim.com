@@ -1,16 +1,17 @@
+"use client";
+
+import { StoreLink } from "@/components/StoreLink";
+
 type Props = {
   href: string;
   title: string;
+  /** Product slug or name for `store_click` (e.g. kanvra). */
+  product: string;
 };
 
-export function AppStoreBadge({ href, title }: Props) {
+export function AppStoreBadge({ href, title, product }: Props) {
   return (
-    <a
-      href={href}
-      className="inline-block no-underline"
-      rel="noreferrer"
-      target="_blank"
-    >
+    <StoreLink href={href} product={product} className="inline-block no-underline">
       <img
         src="/badges/app-store-us.svg"
         alt={`Download ${title} on the App Store`}
@@ -18,6 +19,6 @@ export function AppStoreBadge({ href, title }: Props) {
         height={50}
         className="h-[50px] w-auto"
       />
-    </a>
+    </StoreLink>
   );
 }

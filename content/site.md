@@ -4,6 +4,7 @@ tagline: Websites, apps, and games — built end to end.
 supportEmail: support@kadirkasim.com
 role: Software developer
 status: Open to projects
+analyticsNote: This site uses anonymous product analytics (pages and store clicks) — not personal profiles.
 headline: Ideas become\ndigital products.
 heroLead: I build websites, apps, and games. Design, technology, and performance in one experience.
 ctaPrimary: See the work

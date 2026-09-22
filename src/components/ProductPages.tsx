@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { ProductGallery } from "@/components/ProductGallery";
 import { Reveal } from "@/components/Reveal";
+import { StoreLink } from "@/components/StoreLink";
 import type { ProductContent } from "@/lib/content";
 import { listProducts, productBasePath } from "@/lib/content";
 import type { Locale } from "@/lib/locale";
@@ -65,9 +66,9 @@ export function ProductLanding({ product, locale }: { product: ProductContent; l
                 <p className="mt-4 max-w-2xl text-[1.05rem] leading-relaxed text-muted">{product.description}</p>
                 <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[14px]">
                   {product.storeUrl ? (
-                    <a href={product.storeUrl} className="text-link" rel="noreferrer" target="_blank">
+                    <StoreLink href={product.storeUrl} product={product.slug} className="text-link">
                       {ui.appStore}
-                    </a>
+                    </StoreLink>
                   ) : null}
                   <Link href={`${base}/support`} className="text-link">
                     {ui.support}

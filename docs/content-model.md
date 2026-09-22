@@ -4,7 +4,7 @@ All public wording is markdown in `content/`. Code renders it.
 
 ## Site (`content/site.md`)
 
-`title`, `tagline`, `supportEmail`, `role`, `headline`, `about`, `invite`, `workHeading`, `stackLead`, `stack`, `sites` (`title`, `url`, `kind`, `tagline`), `why` (`title` + `body` items). Body is the short position paragraph.
+`title`, `tagline`, `supportEmail`, `role`, `status`, `analyticsNote` (optional one-line disclosure for anonymous website analytics), plus homepage fields (`headline`, `about`, `invite`, `workHeading`, `stack`, `builds`, …). Body is the short position paragraph.
 
 ## Product (`content/products/<slug>.md`)
 

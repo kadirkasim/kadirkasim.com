@@ -8,6 +8,7 @@ Headquarters of **Kadir Kasim**. English first. Stack when code exists: Next.js,
 | --- | --- |
 | Brand, tone, what not to invent | [docs/voice.md](docs/voice.md) |
 | Facts, products, URLs | [docs/brief.md](docs/brief.md) |
+| Website product analytics | [docs/analytics.md](docs/analytics.md) |
 | Order of work | [TASKS.md](TASKS.md), [docs/roadmap.md](docs/roadmap.md) |
 | New game/app or page copy | [docs/content-model.md](docs/content-model.md), then `content/` |
 | Add a product end-to-end | `.cursor/skills/add-product/SKILL.md` |

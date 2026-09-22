@@ -4,6 +4,7 @@ tagline: Web siteleri, uygulamalar ve oyunlar — uçtan uca.
 supportEmail: support@kadirkasim.com
 role: Yazılım geliştirici
 status: Projelere açığım
+analyticsNote: Bu site anonim ürün analitiği kullanır (sayfalar ve mağaza tıklamaları) — kişisel profil yok.
 headline: Fikirler\ndijital ürüne dönüşür.
 heroLead: Web siteleri, uygulamalar ve oyunlar geliştiriyorum. Tasarım, teknoloji ve performans tek bir deneyimde.
 ctaPrimary: Öne çıkanlar

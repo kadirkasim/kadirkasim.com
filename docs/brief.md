@@ -2,6 +2,10 @@
 
 HQ of **Kadir Kasim** at kadirkasim.com. Indie: games, apps, sites; marketing through production; partnership with proof = shipped work.
 
+## Website analytics
+
+Anonymous product analytics on the marketing site only (PostHog). See [analytics.md](analytics.md). Not personal profiles. Kanvra app stays `analytics: false`. Solitaire ads metrics stay in Unity LevelPlay until a later product-analytics pass.
+
 ## Products
 
 - **Solitaire Friends** — [App Store](https://apps.apple.com/us/app/solitaire-friends-2026/id6754052336). Unity. Version 2.1 uses Unity LevelPlay (ironSource): Unity Ads and ironSource Ads. `app-ads.txt` at site root.

@@ -76,9 +76,17 @@ type FooterProps = {
   email: string;
   products: { title: string; href: string }[];
   designedWith: string;
+  analyticsNote?: string;
 };
 
-export function SiteFooter({ title, tagline, email, products, designedWith }: FooterProps) {
+export function SiteFooter({
+  title,
+  tagline,
+  email,
+  products,
+  designedWith,
+  analyticsNote,
+}: FooterProps) {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-line bg-void">
@@ -99,9 +107,12 @@ export function SiteFooter({ title, tagline, email, products, designedWith }: Fo
         </div>
       </Container>
       <Container className="flex flex-col gap-2 border-t border-line py-6 text-[12px] text-faint sm:flex-row sm:items-center sm:justify-between">
-        <p>
-          © {year} {title}
-        </p>
+        <div className="space-y-1">
+          <p>
+            © {year} {title}
+          </p>
+          {analyticsNote ? <p className="max-w-md leading-relaxed">{analyticsNote}</p> : null}
+        </div>
         <p>{designedWith}</p>
       </Container>
     </footer>
