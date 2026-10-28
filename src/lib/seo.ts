@@ -11,6 +11,9 @@ export const indexedPaths = [
   "/games/solitaire-friends",
   "/games/solitaire-friends/support",
   "/games/solitaire-friends/privacy",
+  "/wodue",
+  "/wodue/support",
+  "/wodue/privacy",
 ] as const;
 
 export type IndexedPath = (typeof indexedPaths)[number];

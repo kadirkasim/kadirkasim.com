@@ -9,6 +9,9 @@ const priorityByPath: Record<string, number> = {
   "/apps/kanvra/privacy": 0.5,
   "/games/solitaire-friends/support": 0.5,
   "/games/solitaire-friends/privacy": 0.5,
+  "/wodue": 0.7,
+  "/wodue/support": 0.5,
+  "/wodue/privacy": 0.5,
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
