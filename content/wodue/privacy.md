@@ -1,6 +1,6 @@
 ---
 title: WoDue
-updated: "2026-10-28"
+updated: "2026-10-29"
 metaDescription: >-
   Privacy policy for WoDue: what the game stores on its server, what other players see, purchases, notifications, ads in the beta, and how to delete your account.
 lead: >-
@@ -31,7 +31,7 @@ sections:
   - title: Why it is used
     paragraphs:
       - >-
-        This data is used to run your account and matches, keep leagues and friend lists, restore your account when you sign in with your email, grant what you bought or earned, send the notifications you allowed, keep the service secure, and answer your support requests. It is not sold.
+        This data is used to run your account and matches, keep leagues and friend lists, restore your account when you sign in with your email, grant what you bought or earned, send the notifications you allowed, improve the game, keep the service secure, and answer your support requests. Your data is not sold and is not used for ad targeting.
   - title: What other players see
     paragraphs:
       - >-
@@ -49,7 +49,9 @@ sections:
   - title: Advertising and analytics
     paragraphs:
       - >-
-        This beta version of WoDue does not show ads, and optional ad measurement is off. The game does not use a separate analytics service. If ads are added later, this policy and any required consent prompts will be updated before ads are turned on.
+        The game does not use a separate external analytics service; instead, the developer reviews the records already stored on the server in a first-party admin panel for product analysis and support. The number and duration of matches played, game progress, preferred purchase packages, and bonus and reward usage are analyzed to improve the game and provide support. This analysis can include reports generated from account-linked records and is not limited to aggregate or fully anonymous data. This data is not sold and is not used for ad targeting.
+      - >-
+        This beta version of WoDue does not show ads, and optional ad measurement and ad-viewing analytics are off during the beta. If ads are added later, this policy and any required consent prompts will be updated before ads are turned on.
       - >-
         This website has its own anonymous page analytics, described in the site footer. That is separate from the game and does not include your game data.
   - title: Service providers

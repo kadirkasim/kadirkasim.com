@@ -1,6 +1,6 @@
 ---
 title: WoDue
-updated: "2026-10-28"
+updated: "2026-10-29"
 metaDescription: >-
   WoDue gizlilik politikası: oyunun sunucuda tuttuğu bilgiler, diğer oyuncuların gördükleri, satın almalar, bildirimler, betada reklam durumu ve hesap silme.
 lead: >-
@@ -31,7 +31,7 @@ sections:
   - title: Ne için kullanılır
     paragraphs:
       - >-
-        Bu bilgiler hesabını ve maçlarını yürütmek, ligleri ve arkadaş listelerini tutmak, e-postanla giriş yaptığında hesabını geri yüklemek, satın aldığın veya kazandığın hakları vermek, izin verdiğin bildirimleri göndermek, hizmeti güvende tutmak ve destek taleplerini yanıtlamak için kullanılır. Satılmaz.
+        Bu bilgiler hesabını ve maçlarını yürütmek, ligleri ve arkadaş listelerini tutmak, e-postanla giriş yaptığında hesabını geri yüklemek, satın aldığın veya kazandığın hakları vermek, izin verdiğin bildirimleri göndermek, oyunu geliştirmek, hizmeti güvende tutmak ve destek taleplerini yanıtlamak için kullanılır. Verilerin satılmaz ve reklam hedeflemesi için kullanılmaz.
   - title: Diğer oyuncuların gördükleri
     paragraphs:
       - >-
@@ -49,7 +49,9 @@ sections:
   - title: Reklam ve analitik
     paragraphs:
       - >-
-        WoDue’nun bu beta sürümü reklam göstermez; isteğe bağlı reklam ölçümü kapalıdır. Oyun ayrı bir analitik hizmeti kullanmaz. İleride reklam eklenirse reklamlar açılmadan önce bu politika ve gerekli izin ekranları güncellenir.
+        Oyun ayrı bir harici analitik hizmeti kullanmaz; bunun yerine geliştirici, sunucuda zaten tutulan kayıtları kendi yönetim panelinde birinci taraf ürün analizi ve destek için inceler. Oynanan maç sayısı ve süresi, oyun ilerlemesi, tercih edilen satın alma paketleri ile bonus ve ödül kullanımı oyunu geliştirmek ve destek sağlamak amacıyla analiz edilir. Bu inceleme hesaba bağlı kayıtlardan üretilen raporları içerebilir; yalnızca toplu veya tamamen anonim verilerle sınırlı değildir. Bu veriler satılmaz ve reklam hedeflemesi için kullanılmaz.
+      - >-
+        WoDue’nun bu beta sürümü reklam göstermez; isteğe bağlı reklam ölçümü ve reklam izleme analizi betada kapalıdır. İleride reklam eklenirse reklamlar açılmadan önce bu politika ve gerekli izin ekranları güncellenir.
       - >-
         Bu web sitesinin, site alt bilgisinde açıklanan kendi anonim sayfa analitiği vardır. Bu, oyundan ayrıdır ve oyun verilerini içermez.
   - title: Hizmet sağlayıcılar
