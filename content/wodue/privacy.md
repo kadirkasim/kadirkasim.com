@@ -27,7 +27,7 @@ sections:
       - A device notification token, if you allow notifications.
     after:
       - >-
-        The app may also keep a copy of some of this data on your device so it works smoothly. Like any online service, the server processes technical connection data, such as your IP address, to deliver the game and protect it from abuse.
+        The app may also keep a copy of some of this data on your device so it works smoothly. Like any online service, the server and edge layer process technical connection data, such as your IP address, to deliver the game and protect it from abuse; on error or security events, technical logs may record IP address, request metadata, status code, and timing with sensitive values such as cookies masked.
   - title: Why it is used
     paragraphs:
       - >-
@@ -39,7 +39,7 @@ sections:
   - title: Purchases
     paragraphs:
       - >-
-        Purchases are handled by Apple through the App Store. WoDue never receives your payment card details. To grant what you bought, the server checks the transaction information Apple provides and records the result with your account.
+        Purchases are handled by Apple through the App Store. WoDue never receives your payment card details, and does not use a direct webshop (D2C/Webshop) or a Unity Authentication player account. To grant what you bought, the server checks the transaction information Apple provides and records the result with your account.
       - >-
         During the beta, items from Apple’s test (sandbox) purchases are kept separate from real purchased items. Your account and progress are the same in both cases.
   - title: Notifications
@@ -49,9 +49,11 @@ sections:
   - title: Advertising and analytics
     paragraphs:
       - >-
-        The game does not use a separate external analytics service; instead, the developer reviews the records already stored on the server in a first-party admin panel for product analysis and support. The number and duration of matches played, game progress, preferred purchase packages, and bonus and reward usage are analyzed to improve the game and provide support. This analysis can include reports generated from account-linked records and is not limited to aggregate or fully anonymous data. This data is not sold and is not used for ad targeting.
+        For first-party product analysis, the developer reviews the records already stored on the server in a first-party admin panel. The number and duration of matches played, game progress, preferred purchase packages, and bonus and reward usage are analyzed to improve the game and provide support. This analysis can include reports generated from account-linked records and is not limited to aggregate or fully anonymous data. This data is not sold and is not used for ad targeting.
       - >-
-        This beta version of WoDue does not show ads, and optional ad measurement and ad-viewing analytics are off during the beta. If ads are added later, this policy and any required consent prompts will be updated before ads are turned on.
+        In addition, the app uses Unity In-App Purchasing (Unity IAP 5.4) to run the App Store purchase flow. During store and purchase operations, the Unity IAP SDK processes and sends purchase/order events and product details, session, installation, and vendor identifiers (including iOS IDFV), device model and operating system/app versions, and device language/locale and store currency/region configuration to Unity for purchase service operation, order reconciliation, analytics, and diagnostics. Payment card details and GPS or physical device location are not collected; language and storefront region/currency are configuration metadata rather than evidence of physical location.
+      - >-
+        This beta version of WoDue does not show ads, and optional ad measurement, ad-viewing analytics, and the advertising identifier (IDFA) are off during the beta. If ads are added later, this policy and any required consent prompts will be updated before ads are turned on.
       - >-
         This website has its own anonymous page analytics, described in the site footer. That is separate from the game and does not include your game data.
   - title: Service providers
@@ -61,10 +63,11 @@ sections:
       - A hosting provider for the game server and its database.
       - Amazon Web Services (Amazon SES) to send one-time email codes.
       - Apple, for App Store purchases and push notifications.
+      - Unity Technologies (Unity In-App Purchasing SDK — https://unity.com/legal/game-player-and-app-user-privacy-policy and https://docs.unity.com/en-us/iap/privacy-and-consent/overview), for in-app purchase infrastructure, order reconciliation, and purchase telemetry/diagnostics.
       - Backblaze (B2), to store private database backups and the separate minimal deletion records used during recovery.
     after:
       - >-
-        These providers process data only to provide their part of the service.
+        The hosting, email (Amazon SES), and backup (Backblaze B2) providers process data only on behalf of WoDue to deliver their infrastructure services. Apple operates App Store purchases and push notifications under its own terms. Depending on the feature and data type, Unity may act either as a service provider (processor) on behalf of the developer or as an independent controller under its own privacy policy for purposes such as security, fraud prevention, billing, and SDK analytics or service improvement.
   - title: Security
     paragraphs:
       - >-
@@ -80,7 +83,9 @@ sections:
       - >-
         Scheduled database backups are normally removed after 30 days. Cleanup is deferred if a recent verified backup is unavailable, so that period can be longer. Manual, pre-release and verification backups are managed separately and are not covered by this automatic 30-day cleanup. Backups are not edited individually after account deletion; recovery safeguards reapply completed deletions before a restored database is used.
       - >-
-        To ask about retained records or request removal, email {email}.
+        Server and edge error logs rotate by file size (3 × 10 MB rolling files) rather than a guaranteed time-based expiry, so how long a technical log entry remains before being overwritten depends on traffic and error volume. Account deletion does not individually purge already-written technical log lines or existing backup files. Unity’s official IAP privacy documentation states that Unity retains its service logs for up to 90 days; that period describes Unity’s own provider policy and is not a guarantee that all game data expires after 90 days.
+      - >-
+        To ask about retained first-party records, request removal, or submit an access or deletion request regarding Unity IAP SDK data, email {email}. Where Unity acts as a processor on behalf of the developer, the developer submits the relevant instruction to Unity support using the available identifiers and transaction context; automatic or immediate erasure on Unity’s systems is not guaranteed. For data that Unity processes as an independent controller, you can also submit requests directly to Unity support under Unity’s privacy policy (https://unity.com/legal/game-player-and-app-user-privacy-policy).
   - title: Signing out and guest accounts
     paragraphs:
       - >-

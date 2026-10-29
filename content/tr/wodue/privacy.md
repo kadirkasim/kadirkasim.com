@@ -27,7 +27,7 @@ sections:
       - Bildirimlere izin verdiysen cihaz bildirim anahtarı (token).
     after:
       - >-
-        Uygulama, sorunsuz çalışmak için bu bilgilerin bir kısmının kopyasını cihazında da tutabilir. Her çevrim içi hizmette olduğu gibi sunucu, oyunu sunmak ve kötüye kullanıma karşı korumak için IP adresin gibi teknik bağlantı bilgilerini işler.
+        Uygulama, sorunsuz çalışmak için bu bilgilerin bir kısmının kopyasını cihazında da tutabilir. Her çevrim içi hizmette olduğu gibi sunucu ve sınır (edge) katmanı, oyunu sunmak ve kötüye kullanıma karşı korumak için IP adresin gibi teknik bağlantı bilgilerini işler; hata veya güvenlik olaylarında teknik günlükler IP adresi, istek üst verileri, durum kodu ve süre bilgilerini çerez gibi hassas değerler maskelenmiş olarak kaydedebilir.
   - title: Ne için kullanılır
     paragraphs:
       - >-
@@ -39,7 +39,7 @@ sections:
   - title: Satın almalar
     paragraphs:
       - >-
-        Satın almalar Apple tarafından App Store üzerinden işlenir. WoDue ödeme kartı bilgilerini hiçbir zaman almaz. Satın aldığını verebilmek için sunucu, Apple’ın sağladığı işlem bilgisini doğrular ve sonucu hesabına kaydeder.
+        Satın almalar Apple tarafından App Store üzerinden işlenir. WoDue ödeme kartı bilgilerini hiçbir zaman almaz; doğrudan web mağazası (D2C/Webshop) veya Unity Authentication oyuncu hesabı kullanılmaz. Satın aldığını verebilmek için sunucu, Apple’ın sağladığı işlem bilgisini doğrular ve sonucu hesabına kaydeder.
       - >-
         Beta süresince Apple’ın test (sandbox) satın almalarından gelen haklar, gerçek satın alınmış haklardan ayrı tutulur. Hesabın ve ilerlemen her iki durumda da aynıdır.
   - title: Bildirimler
@@ -49,9 +49,11 @@ sections:
   - title: Reklam ve analitik
     paragraphs:
       - >-
-        Oyun ayrı bir harici analitik hizmeti kullanmaz; bunun yerine geliştirici, sunucuda zaten tutulan kayıtları kendi yönetim panelinde birinci taraf ürün analizi ve destek için inceler. Oynanan maç sayısı ve süresi, oyun ilerlemesi, tercih edilen satın alma paketleri ile bonus ve ödül kullanımı oyunu geliştirmek ve destek sağlamak amacıyla analiz edilir. Bu inceleme hesaba bağlı kayıtlardan üretilen raporları içerebilir; yalnızca toplu veya tamamen anonim verilerle sınırlı değildir. Bu veriler satılmaz ve reklam hedeflemesi için kullanılmaz.
+        Birinci taraf ürün analizi olarak geliştirici, sunucuda zaten tutulan kayıtları kendi yönetim panelinde inceler. Oynanan maç sayısı ve süresi, oyun ilerlemesi, tercih edilen satın alma paketleri ile bonus ve ödül kullanımı oyunu geliştirmek ve destek sağlamak amacıyla analiz edilir. Bu inceleme hesaba bağlı kayıtlardan üretilen raporları içerebilir; yalnızca toplu veya tamamen anonim verilerle sınırlı değildir. Bu veriler satılmaz ve reklam hedeflemesi için kullanılmaz.
       - >-
-        WoDue’nun bu beta sürümü reklam göstermez; isteğe bağlı reklam ölçümü ve reklam izleme analizi betada kapalıdır. İleride reklam eklenirse reklamlar açılmadan önce bu politika ve gerekli izin ekranları güncellenir.
+        Buna ek olarak uygulama, App Store satın alma akışını yürütmek için Unity In-App Purchasing (Unity IAP 5.4) bileşenini kullanır. Mağaza ve satın alma işlemleri sırasında Unity IAP SDK’sı; satın alma/sipariş olaylarını ve ürün bilgilerini, oturum, kurulum ve satıcı kimliklerini (iOS IDFV dahil), cihaz modeli ile işletim sistemi/uygulama sürümlerini ve cihaz dil/yerel ayar ile mağaza para birimi/bölge yapılandırmasını satın alma hizmetinin çalışması, sipariş uzlaştırma, analitik ve hata tanılama amacıyla Unity’ye iletir. Ödeme kartı bilgisi veya GPS/fiziksel cihaz konumu toplanmaz; dil ve mağaza bölgesi/para birimi fiziksel konum kanıtı değil, yapılandırma bilgisidir.
+      - >-
+        WoDue’nun bu beta sürümü reklam göstermez; isteğe bağlı reklam ölçümü, reklam izleme analizi ve reklam kimliği (IDFA) betada kapalıdır. İleride reklam eklenirse reklamlar açılmadan önce bu politika ve gerekli izin ekranları güncellenir.
       - >-
         Bu web sitesinin, site alt bilgisinde açıklanan kendi anonim sayfa analitiği vardır. Bu, oyundan ayrıdır ve oyun verilerini içermez.
   - title: Hizmet sağlayıcılar
@@ -61,10 +63,11 @@ sections:
       - Oyun sunucusu ve veritabanı için bir barındırma sağlayıcısı.
       - Tek kullanımlık e-posta kodlarını göndermek için Amazon Web Services (Amazon SES).
       - App Store satın almaları ve bildirimler için Apple.
-      - Oyun veritabanının özel yedek kopyalarını saklamak için Backblaze (B2).
+      - Uygulama içi satın alma altyapısı, sipariş uzlaştırma ve satın alma telemetrisi/tanılama için Unity Technologies (Unity In-App Purchasing SDK — https://unity.com/legal/game-player-and-app-user-privacy-policy ve https://docs.unity.com/en-us/iap/privacy-and-consent/overview).
+      - Oyun veritabanının özel yedek kopyalarını ve kurtarma sırasında kullanılan ayrı sınırlı silme kayıtlarını saklamak için Backblaze (B2).
     after:
       - >-
-        Bu sağlayıcılar bilgileri yalnız hizmetin kendi bölümünü sağlamak için işler.
+        Barındırma, e-posta (Amazon SES) ve yedekleme (Backblaze B2) sağlayıcıları verileri yalnız WoDue adına ilgili altyapı hizmetini sunmak için işler. Apple, App Store satın almalarını ve bildirim altyapısını kendi koşulları kapsamında yürütür. Unity ise özelliğe ve veri türüne göre geliştirici adına hizmet sağlayıcı (veri işleyen) olarak veya güvenlik, dolandırıcılık önleme, faturalama ve SDK analitiği/hizmet iyileştirmesi gibi amaçlarla kendi gizlilik politikası kapsamında bağımsız veri sorumlusu olarak hareket edebilir.
   - title: Güvenlik
     paragraphs:
       - >-
@@ -80,7 +83,9 @@ sections:
       - >-
         Planlı veritabanı yedekleri normalde 30 gün sonra temizlenir. Yakın tarihli doğrulanmış bir yedek bulunmazsa temizlik ertelenir ve bu süre uzayabilir. Elle alınan, yayın öncesi ve doğrulama yedekleri ayrı yönetilir; otomatik 30 günlük temizliğe dahil değildir. Hesap silindikten sonra yedekler tek tek düzenlenmez; geri yüklenen veritabanı kullanılmadan önce tamamlanmış silme işlemleri yeniden uygulanır.
       - >-
-        Saklanan kayıtları sormak veya kaldırılmasını istemek için {email} adresine yaz.
+        Sunucu ve sınır (edge) hata günlükleri zamana bağlı garantili bir silme süresiyle değil, dosya boyutuna göre (3 × 10 MB döngüsel kayıt) yenilenir; bu nedenle bir teknik günlük kaydının ne kadar sürede üzerine yazılacağı trafik ve hata yoğunluğuna bağlıdır. Hesap silme işlemi, daha önce yazılmış teknik günlük satırlarını veya mevcut yedek dosyalarını tek tek temizlemez. Unity’nin resmi IAP gizlilik belgelerine göre Unity kendi servis günlüklerini 90 güne kadar saklar; bu süre Unity’nin kendi sağlayıcı politikasıdır ve oyundaki tüm verilerin 90 günde silindiği anlamına gelmez.
+      - >-
+        Saklanan birinci taraf kayıtları sormak, kaldırılmasını istemek veya Unity IAP SDK kapsamındaki verilerin için erişim/silme talebinde bulunmak üzere {email} adresine yaz. Unity’nin geliştirici adına veri işleyen (processor) olduğu durumlarda geliştirici, mevcut kimlik ve işlem bilgilerini kullanarak ilgili talimatı Unity desteğine iletir; ancak Unity sistemlerinde otomatik veya anlık silme taahhüt edilmez. Unity’nin bağımsız veri sorumlusu olarak işlediği veriler için taleplerini Unity’nin gizlilik politikası (https://unity.com/legal/game-player-and-app-user-privacy-policy) üzerinden doğrudan Unity desteğine de iletebilirsin.
   - title: Çıkış ve misafir hesaplar
     paragraphs:
       - >-
