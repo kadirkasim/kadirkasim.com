@@ -1,8 +1,8 @@
 ---
 title: WoDue
-updated: "2026-10-29"
+updated: "2026-11-07"
 metaDescription: >-
-  Privacy policy for WoDue: what the game stores on its server, what other players see, purchases, notifications, ads in the beta, and how to delete your account.
+  Privacy policy for WoDue: what the game stores on its server, what other players see, purchases, notifications, advertising permissions, and how to delete your account.
 lead: >-
   WoDue is a Turkish word game made by Kadir Kasim. This policy covers the WoDue game and its server. The game itself is in Turkish only; this English page explains the same rules.
 sections:
@@ -12,6 +12,12 @@ sections:
         WoDue is an online game. When you first open it, the server creates a player account for you, even if you play as a guest and never add an email address.
       - >-
         You can optionally link an email address. We send a one-time code to that address to confirm it, and later to restore your account on another device. WoDue does not ask for a password, and there is no Apple or Google sign-in.
+  - title: How we limit email use
+    paragraphs:
+      - >-
+        We use your email only to link and verify your account, sign in, recover access and support these account operations. We do not sell it, provide it to advertising partners or add it to marketing lists. Granting ATT permission does not change this restriction.
+      - >-
+        Amazon SES processes the recipient address to deliver sign-in codes. Hosting and private backup providers may store account records on our behalf. This necessary infrastructure processing is separate from advertising disclosure; we do not claim that no third party ever processes an email address.
   - title: What the server stores
     paragraphs:
       - "To run the game, the server keeps the following with your account:"
@@ -31,7 +37,7 @@ sections:
   - title: Why it is used
     paragraphs:
       - >-
-        This data is used to run your account and matches, keep leagues and friend lists, restore your account when you sign in with your email, grant what you bought or earned, send the notifications you allowed, improve the game, keep the service secure, and answer your support requests. Your data is not sold and is not used for ad targeting.
+        This data is used to run your account and matches, keep leagues and friend lists, restore your account when you sign in with your email, grant what you bought or earned, send the notifications you allowed, improve the game, keep the service secure, and answer your support requests. Your account email is not sold or used for ad targeting. Advertising SDK data and permissions are described separately below.
   - title: What other players see
     paragraphs:
       - >-
@@ -53,9 +59,13 @@ sections:
       - >-
         In addition, the app uses Unity In-App Purchasing (Unity IAP 5.4) to run the App Store purchase flow. During store and purchase operations, the Unity IAP SDK processes and sends purchase/order events and product details, session, installation, and vendor identifiers (including iOS IDFV), device model and operating system/app versions, and device language/locale and store currency/region configuration to Unity for purchase service operation, order reconciliation, analytics, and diagnostics. Payment card details and GPS or physical device location are not collected; language and storefront region/currency are configuration metadata rather than evidence of physical location.
       - >-
-        This beta version of WoDue does not show ads, and optional ad measurement, ad-viewing analytics, and the advertising identifier (IDFA) are off during the beta. If ads are added later, this policy and any required consent prompts will be updated before ads are turned on.
+        WoDue uses ironSource and Unity Ads through Unity LevelPlay. InMobi Choice CMP collects applicable advertising privacy choices. On iOS, Apple’s ATT permission separately governs cross-app tracking and IDFA access. Advertising SDK initialization waits for an ATT decision. Declining ATT does not block the game; supported non-tracking ads may still be served, subject to other applicable privacy choices. Manage tracking in iOS Settings and advertising privacy choices in the game settings.
       - >-
         This website has its own anonymous page analytics, described in the site footer. That is separate from the game and does not include your game data.
+  - title: Advertising data
+    paragraphs:
+      - >-
+        Advertising services may process advertising identifiers, ad views and interactions, device and connection information, performance data and an approximate country or region inferred from IP for ad delivery and measurement. We do not request GPS location permission. See https://unity.com/legal/game-player-and-app-user-privacy-policy. WoDue does not send your account email or an email-derived identifier to ad SDKs. Reward attribution uses a separate randomly generated server ad-user ID, which is not fully anonymous.
   - title: Service providers
     paragraphs:
       - "WoDue relies on a small number of providers to run the service:"
@@ -64,6 +74,7 @@ sections:
       - Amazon Web Services (Amazon SES) to send one-time email codes.
       - Apple, for App Store purchases and push notifications.
       - Unity Technologies (Unity In-App Purchasing SDK — https://unity.com/legal/game-player-and-app-user-privacy-policy and https://docs.unity.com/en-us/iap/privacy-and-consent/overview), for in-app purchase infrastructure, order reconciliation, and purchase telemetry/diagnostics.
+      - Unity LevelPlay, ironSource and Unity Ads for advertising, and InMobi Choice CMP for advertising privacy choices.
       - Backblaze (B2), to store private database backups and the separate minimal deletion records used during recovery.
     after:
       - >-
@@ -92,6 +103,20 @@ sections:
         Signing out does not delete your account on the server. You can return to it by signing in with the same email address. A guest account has to be linked to an email address before you can sign out.
       - >-
         If you delete the app or change devices without linking an email, you may lose access to your guest account. When you switch from a guest account to an existing linked account, the guest’s progress is not merged into it.
+  - title: How and why we process data
+    paragraphs:
+      - >-
+        Kadir Kasim is the data controller; contact {email} with requests. We collect data electronically from information you enter in the app, game and account activity, purchase providers and your device’s connections to our services.
+      - >-
+        Creating accounts, signing in, saving progress, playing with friends and delivering purchased entitlements are necessary to provide the game service. Necessary abuse prevention and service security rely on legitimate interests; records needed for a legal obligation or dispute are processed to fulfil that obligation or establish, exercise or defend rights. We will provide further information before introducing a different use.
+      - >-
+        Advertising tracking that requires permission under applicable rules depends on the relevant privacy choice and, on iOS, ATT permission. Providing your email does not give permission for advertising tracking or marketing. Declining advertising permission does not block access to your account.
+  - title: Your personal data rights
+    paragraphs:
+      - >-
+        Under applicable law, you may ask whether your data is processed, request information about that processing, its purposes and recipients, request correction of inaccurate or incomplete information, and request deletion where the conditions are met. You may request that recipients be notified of corrections or deletion, object to an adverse result based solely on automated processing, and seek compensation for damage from unlawful processing.
+      - >-
+        Where applicable, you also have rights to restrict or object to processing, data portability, withdraw consent and complain to the competent data protection authority. Withdrawal does not retrospectively affect the lawfulness of earlier processing. Send requests to {email}; we may ask for only the verification needed to protect your account.
   - title: Children
     paragraphs:
       - >-

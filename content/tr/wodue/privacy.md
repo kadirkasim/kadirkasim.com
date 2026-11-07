@@ -1,8 +1,8 @@
 ---
 title: WoDue
-updated: "2026-10-29"
+updated: "2026-11-07"
 metaDescription: >-
-  WoDue gizlilik politikası: oyunun sunucuda tuttuğu bilgiler, diğer oyuncuların gördükleri, satın almalar, bildirimler, betada reklam durumu ve hesap silme.
+  WoDue gizlilik politikası: oyunun sunucuda tuttuğu bilgiler, diğer oyuncuların gördükleri, satın almalar, bildirimler, reklam izinleri ve hesap silme.
 lead: >-
   WoDue, Kadir Kasim’in geliştirdiği Türkçe bir kelime oyunudur. Bu politika WoDue oyununu ve sunucusunu kapsar.
 sections:
@@ -12,6 +12,12 @@ sections:
         WoDue çevrim içi bir oyundur. Oyunu ilk açtığında sunucu senin için bir oyuncu hesabı oluşturur; misafir olarak oynasan ve hiç e-posta eklemesen de bu hesap vardır.
       - >-
         İstersen bir e-posta adresi bağlayabilirsin. Adresi doğrulamak ve daha sonra hesabını başka bir cihazda geri yüklemek için bu adrese tek kullanımlık kod göndeririz. WoDue parola istemez; Apple veya Google ile giriş yoktur.
+  - title: E-posta kullanım sınırımız
+    paragraphs:
+      - >-
+        E-posta adresini yalnız hesabını bağlamak, doğrulamak, hesabına giriş veya kurtarma sağlamak ve bu işlemlerle ilgili destek için kullanırız. Adresini satmayız, reklam ortaklarına vermeyiz ve pazarlama listesine eklemeyiz. ATT izni vermen bu sınırı değiştirmez.
+      - >-
+        Giriş kodunu iletmek için Amazon SES alıcı adresini işler. Barındırma ve özel yedekleme sağlayıcıları da hizmetin gerektirdiği hesap kayıtlarını WoDue adına saklayabilir. Bu nedenle “e-posta hiçbir üçüncü tarafça işlenmez” taahhüdü vermeyiz; bu altyapı kullanımı reklam amacıyla paylaşım değildir.
   - title: Sunucuda tutulanlar
     paragraphs:
       - "Oyunun çalışması için sunucu hesabınla birlikte şunları tutar:"
@@ -31,7 +37,7 @@ sections:
   - title: Ne için kullanılır
     paragraphs:
       - >-
-        Bu bilgiler hesabını ve maçlarını yürütmek, ligleri ve arkadaş listelerini tutmak, e-postanla giriş yaptığında hesabını geri yüklemek, satın aldığın veya kazandığın hakları vermek, izin verdiğin bildirimleri göndermek, oyunu geliştirmek, hizmeti güvende tutmak ve destek taleplerini yanıtlamak için kullanılır. Verilerin satılmaz ve reklam hedeflemesi için kullanılmaz.
+        Bu bilgiler hesabını ve maçlarını yürütmek, ligleri ve arkadaş listelerini tutmak, e-postanla giriş yaptığında hesabını geri yüklemek, satın aldığın veya kazandığın hakları vermek, izin verdiğin bildirimleri göndermek, oyunu geliştirmek, hizmeti güvende tutmak ve destek taleplerini yanıtlamak için kullanılır. Hesap e-postan satılmaz ve reklam hedeflemesi için kullanılmaz. Reklam SDK’larının işlediği teknik veriler ve izinlerin aşağıdaki reklam bölümünde ayrıca açıklanır.
   - title: Diğer oyuncuların gördükleri
     paragraphs:
       - >-
@@ -53,7 +59,9 @@ sections:
       - >-
         Buna ek olarak uygulama, App Store satın alma akışını yürütmek için Unity In-App Purchasing (Unity IAP 5.4) bileşenini kullanır. Mağaza ve satın alma işlemleri sırasında Unity IAP SDK’sı; satın alma/sipariş olaylarını ve ürün bilgilerini, oturum, kurulum ve satıcı kimliklerini (iOS IDFV dahil), cihaz modeli ile işletim sistemi/uygulama sürümlerini ve cihaz dil/yerel ayar ile mağaza para birimi/bölge yapılandırmasını satın alma hizmetinin çalışması, sipariş uzlaştırma, analitik ve hata tanılama amacıyla Unity’ye iletir. Ödeme kartı bilgisi veya GPS/fiziksel cihaz konumu toplanmaz; dil ve mağaza bölgesi/para birimi fiziksel konum kanıtı değil, yapılandırma bilgisidir.
       - >-
-        WoDue’nun bu beta sürümü reklam göstermez; isteğe bağlı reklam ölçümü, reklam izleme analizi ve reklam kimliği (IDFA) betada kapalıdır. İleride reklam eklenirse reklamlar açılmadan önce bu politika ve gerekli izin ekranları güncellenir.
+        WoDue, Unity LevelPlay üzerinden ironSource ve Unity Ads reklamlarını kullanır. Reklam ve gizlilik tercihlerin, geçerli olduğu yerlerde InMobi Choice CMP ile alınır. iOS’ta uygulamalar arası takip ve reklam kimliği (IDFA) kullanımı için ayrıca Apple’ın takip izni istenir. ATT kararı alınmadan reklam SDK’sı başlatılmaz; izin vermezsen oyun kullanılabilir ve desteklenen takipsiz reklamlar sunulabilir. Gerekli diğer gizlilik onayları da ayrı değerlendirilir. Takip iznini iOS Ayarlar bölümünden, reklam gizlilik tercihlerini oyun ayarlarından yönetebilirsin.
+      - >-
+        Reklam hizmetleri; reklam kimlikleri, görüntüleme ve etkileşim olayları, cihaz ve bağlantı bilgileri, performans verileri ve IP adresinden çıkarılan yaklaşık ülke/bölge bilgisini reklam sunumu ve ölçümü için işleyebilir. GPS konum izni istemeyiz. Ayrıntılar Unity’nin reklam gizlilik açıklamasında yer alır: https://unity.com/legal/game-player-and-app-user-privacy-policy. WoDue hesap e-postanı veya e-postandan türetilmiş bir kimliği reklam SDK’larına göndermez. Reklam ödüllerini hesabına işlemek için sunucunun ürettiği ayrı, rastgele bir reklam kullanıcı kimliği kullanılır; bu kimlik tamamen anonim değildir.
       - >-
         Bu web sitesinin, site alt bilgisinde açıklanan kendi anonim sayfa analitiği vardır. Bu, oyundan ayrıdır ve oyun verilerini içermez.
   - title: Hizmet sağlayıcılar
@@ -64,6 +72,7 @@ sections:
       - Tek kullanımlık e-posta kodlarını göndermek için Amazon Web Services (Amazon SES).
       - App Store satın almaları ve bildirimler için Apple.
       - Uygulama içi satın alma altyapısı, sipariş uzlaştırma ve satın alma telemetrisi/tanılama için Unity Technologies (Unity In-App Purchasing SDK — https://unity.com/legal/game-player-and-app-user-privacy-policy ve https://docs.unity.com/en-us/iap/privacy-and-consent/overview).
+      - Reklam sunumu ve ölçümü için Unity LevelPlay, ironSource ve Unity Ads; reklam gizlilik tercihlerini yönetmek için InMobi Choice CMP.
       - Oyun veritabanının özel yedek kopyalarını ve kurtarma sırasında kullanılan ayrı sınırlı silme kayıtlarını saklamak için Backblaze (B2).
     after:
       - >-
@@ -92,6 +101,20 @@ sections:
         Çıkış yapmak sunucudaki hesabını silmez. Aynı e-posta adresiyle giriş yaparak hesabına dönebilirsin. Misafir hesaptan çıkış yapabilmek için önce bir e-posta adresi bağlaman gerekir.
       - >-
         E-posta bağlamadan uygulamayı silersen veya cihaz değiştirirsen misafir hesabına erişimini kaybedebilirsin. Misafir hesaptan önceden bağlanmış bir hesaba geçtiğinde misafir ilerlemesi o hesapla birleştirilmez.
+  - title: Verileri nasıl ve hangi sebeple işleriz?
+    paragraphs:
+      - >-
+        Veri sorumlusu Kadir Kasim’dir; başvuruların için {email} adresini kullanabilirsin. Verileri uygulamaya girdiğin bilgilerden, oyun ve hesap işlemlerinden, satın alma sağlayıcılarından ve cihazın sunucuyla kurduğu bağlantılardan elektronik olarak toplarız.
+      - >-
+        Hesap açma, giriş, ilerlemeni saklama, arkadaşlarla oynama ve satın aldığın hakları sunma işlemleri, oyun hizmetinin kurulması ve yerine getirilmesi için gereklidir. Kötüye kullanımı önleme ve hizmet güvenliği için gerekli işlemler meşru menfaat kapsamında; bir uyuşmazlık veya kanuni yükümlülük nedeniyle gerekli kayıtlar ise ilgili hakkın korunması veya yükümlülüğün yerine getirilmesi amacıyla işlenir. Bu amaçlar dışında yeni bir kullanım olursa ayrıca bilgilendiririz.
+      - >-
+        Uygulanabilir kuralların izin gerektirdiği reklam takibi, ilgili gizlilik seçimine ve iOS’ta ATT iznine bağlıdır. E-posta adresini vermen reklam takibine ya da pazarlamaya izin verdiğin anlamına gelmez. Reklam iznini reddetmen hesabına erişimini engellemez.
+  - title: Kişisel verilerinle ilgili hakların
+    paragraphs:
+      - >-
+        Uygulanabilir mevzuat kapsamında verilerinin işlenip işlenmediğini öğrenmeyi, işlenmişse bilgi istemeyi, işleme amacını ve aktarım yapılan alıcıları öğrenmeyi, yanlış veya eksik bilgilerin düzeltilmesini ve şartları oluştuğunda silinmesini isteyebilirsin. Düzeltme veya silmenin alıcılara bildirilmesini talep edebilir, yalnız otomatik işleme nedeniyle aleyhine oluşan sonuca itiraz edebilir ve hukuka aykırı işleme nedeniyle zararın varsa giderilmesini isteyebilirsin.
+      - >-
+        Geçerli olduğu ölçüde işlemeyi kısıtlama, itiraz, veri taşınabilirliği, verdiğin rızayı geri çekme ve yetkili veri koruma makamına şikâyet hakların da bulunur. Rızanı geri çekmen önceki işlemenin geçerliliğini geriye dönük değiştirmez. Taleplerini {email} adresine ilet; hesabını korumak için yalnız gerekli kimlik doğrulamasını isteyebiliriz.
   - title: Çocuklar
     paragraphs:
       - >-
