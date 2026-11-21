@@ -1,6 +1,6 @@
 ---
 title: WoDue
-updated: "2026-11-07"
+updated: "2026-11-21"
 metaDescription: >-
   WoDue gizlilik politikası: oyunun sunucuda tuttuğu bilgiler, diğer oyuncuların gördükleri, satın almalar, bildirimler, reklam izinleri ve hesap silme.
 lead: >-
@@ -59,7 +59,7 @@ sections:
       - >-
         Buna ek olarak uygulama, App Store satın alma akışını yürütmek için Unity In-App Purchasing (Unity IAP 5.4) bileşenini kullanır. Mağaza ve satın alma işlemleri sırasında Unity IAP SDK’sı; satın alma/sipariş olaylarını ve ürün bilgilerini, oturum, kurulum ve satıcı kimliklerini (iOS IDFV dahil), cihaz modeli ile işletim sistemi/uygulama sürümlerini ve cihaz dil/yerel ayar ile mağaza para birimi/bölge yapılandırmasını satın alma hizmetinin çalışması, sipariş uzlaştırma, analitik ve hata tanılama amacıyla Unity’ye iletir. Ödeme kartı bilgisi veya GPS/fiziksel cihaz konumu toplanmaz; dil ve mağaza bölgesi/para birimi fiziksel konum kanıtı değil, yapılandırma bilgisidir.
       - >-
-        WoDue, Unity LevelPlay üzerinden ironSource ve Unity Ads reklamlarını kullanır. Reklam ve gizlilik tercihlerin, geçerli olduğu yerlerde InMobi Choice CMP ile alınır. iOS’ta uygulamalar arası takip ve reklam kimliği (IDFA) kullanımı için ayrıca Apple’ın takip izni istenir. ATT kararı alınmadan reklam SDK’sı başlatılmaz; izin vermezsen oyun kullanılabilir ve desteklenen takipsiz reklamlar sunulabilir. Gerekli diğer gizlilik onayları da ayrı değerlendirilir. Takip iznini iOS Ayarlar bölümünden, reklam gizlilik tercihlerini oyun ayarlarından yönetebilirsin.
+        WoDue, Unity LevelPlay aracılığıyla Unity Ads reklamlarını sunar. Reklam kalitesi ve tanılama için Unity Ad Quality bileşeni de pakette bulunur. Uygulama reklam taleplerini kişiselleştirilmemiş reklam ayarıyla gönderir. iOS’ta uygulamalar arası takip ve reklam kimliği (IDFA) kullanımı için ayrıca Apple’ın takip izni istenir; reklam SDK’sı bu karar alınmadan başlatılmaz. Takip iznini reddetmen oyunu engellemez; uygun reklam bulunduğunda desteklenen takipsiz reklamlar sunulabilir. Takip tercihini iOS Ayarlar bölümünden yönetebilirsin. Kişiselleştirilmemiş reklam ayarı, hiçbir teknik verinin işlenmediği veya tüm verilerin anonim olduğu anlamına gelmez.
       - >-
         Reklam hizmetleri; reklam kimlikleri, görüntüleme ve etkileşim olayları, cihaz ve bağlantı bilgileri, performans verileri ve IP adresinden çıkarılan yaklaşık ülke/bölge bilgisini reklam sunumu ve ölçümü için işleyebilir. GPS konum izni istemeyiz. Ayrıntılar Unity’nin reklam gizlilik açıklamasında yer alır: https://unity.com/legal/game-player-and-app-user-privacy-policy. WoDue hesap e-postanı veya e-postandan türetilmiş bir kimliği reklam SDK’larına göndermez. Reklam ödüllerini hesabına işlemek için sunucunun ürettiği ayrı, rastgele bir reklam kullanıcı kimliği kullanılır; bu kimlik tamamen anonim değildir.
       - >-
@@ -72,7 +72,7 @@ sections:
       - Tek kullanımlık e-posta kodlarını göndermek için Amazon Web Services (Amazon SES).
       - App Store satın almaları ve bildirimler için Apple.
       - Uygulama içi satın alma altyapısı, sipariş uzlaştırma ve satın alma telemetrisi/tanılama için Unity Technologies (Unity In-App Purchasing SDK — https://unity.com/legal/game-player-and-app-user-privacy-policy ve https://docs.unity.com/en-us/iap/privacy-and-consent/overview).
-      - Reklam sunumu ve ölçümü için Unity LevelPlay, ironSource ve Unity Ads; reklam gizlilik tercihlerini yönetmek için InMobi Choice CMP.
+      - Reklam sunumu ve ölçümü için Unity LevelPlay ve Unity Ads; reklam kalitesi ve tanılama bileşeni Unity Ad Quality.
       - Oyun veritabanının özel yedek kopyalarını ve kurtarma sırasında kullanılan ayrı sınırlı silme kayıtlarını saklamak için Backblaze (B2).
     after:
       - >-

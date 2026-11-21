@@ -1,6 +1,6 @@
 ---
 title: WoDue
-updated: "2026-11-07"
+updated: "2026-11-21"
 metaDescription: >-
   Privacy policy for WoDue: what the game stores on its server, what other players see, purchases, notifications, advertising permissions, and how to delete your account.
 lead: >-
@@ -59,7 +59,7 @@ sections:
       - >-
         In addition, the app uses Unity In-App Purchasing (Unity IAP 5.4) to run the App Store purchase flow. During store and purchase operations, the Unity IAP SDK processes and sends purchase/order events and product details, session, installation, and vendor identifiers (including iOS IDFV), device model and operating system/app versions, and device language/locale and store currency/region configuration to Unity for purchase service operation, order reconciliation, analytics, and diagnostics. Payment card details and GPS or physical device location are not collected; language and storefront region/currency are configuration metadata rather than evidence of physical location.
       - >-
-        WoDue uses ironSource and Unity Ads through Unity LevelPlay. InMobi Choice CMP collects applicable advertising privacy choices. On iOS, Apple’s ATT permission separately governs cross-app tracking and IDFA access. Advertising SDK initialization waits for an ATT decision. Declining ATT does not block the game; supported non-tracking ads may still be served, subject to other applicable privacy choices. Manage tracking in iOS Settings and advertising privacy choices in the game settings.
+        WoDue serves Unity Ads through Unity LevelPlay. The package also includes Unity Ad Quality for ad quality and diagnostics. The app requests non-personalized ads. On iOS, Apple’s ATT permission separately governs cross-app tracking and access to the advertising identifier (IDFA); advertising SDK initialization waits for that decision. Declining tracking does not block gameplay; supported non-tracking ads may be served when inventory is available. Manage tracking permission in iOS Settings. Requesting non-personalized ads does not mean that no technical data is processed or that all data is anonymous.
       - >-
         This website has its own anonymous page analytics, described in the site footer. That is separate from the game and does not include your game data.
   - title: Advertising data
@@ -74,7 +74,7 @@ sections:
       - Amazon Web Services (Amazon SES) to send one-time email codes.
       - Apple, for App Store purchases and push notifications.
       - Unity Technologies (Unity In-App Purchasing SDK — https://unity.com/legal/game-player-and-app-user-privacy-policy and https://docs.unity.com/en-us/iap/privacy-and-consent/overview), for in-app purchase infrastructure, order reconciliation, and purchase telemetry/diagnostics.
-      - Unity LevelPlay, ironSource and Unity Ads for advertising, and InMobi Choice CMP for advertising privacy choices.
+      - Unity LevelPlay and Unity Ads for ad delivery and measurement; Unity Ad Quality for ad quality and diagnostics.
       - Backblaze (B2), to store private database backups and the separate minimal deletion records used during recovery.
     after:
       - >-
